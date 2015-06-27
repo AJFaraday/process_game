@@ -2,9 +2,13 @@ class Unit
 
   include Components::Movement
   include Components::Health
+  include Components::UnitInteraction
 
   def initialize(game)
     @game = game
+    @game.drawable_objects << self
+    @game.updatable_objects << self
+    @game.units << self
     @image = Gosu::Image.new(
       File.join(File.dirname(__FILE__), "..", 'images', 'peasant.png')
     )
@@ -32,7 +36,14 @@ class Unit
   end
 
   def update
-    read_keys
+    puts "called unit base class update"
+    puts 'decisions should be made by child classes'
+  end
+
+  # Anything which is not me is a target
+
+  def targets
+    @game.units.select { |target| target != self }
   end
 
 end

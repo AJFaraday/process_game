@@ -1,10 +1,8 @@
 require 'gosu'
-require File.join(File.dirname(__FILE__), 'lib', 'background')
-require File.join(File.dirname(__FILE__), 'lib', 'components', 'movement')
-require File.join(File.dirname(__FILE__), 'lib', 'components', 'health')
-require File.join(File.dirname(__FILE__), 'lib', 'unit')
-require File.join(File.dirname(__FILE__), 'lib', 'spin')
-require File.join(File.dirname(__FILE__), 'lib', 'z_order')
+Dir[File.join(File.dirname(__FILE__), 'lib', 'components', '*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'lib', 'units', '*.rb')].each { |file| require file }
+
 
 X_SIZE = 640
 Y_SIZE = 480
@@ -15,6 +13,7 @@ class Game < Gosu::Window
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
   attr_accessor :animations
+  attr_accessor :units
 
   def initialize
     super X_SIZE, Y_SIZE, {}
@@ -22,17 +21,27 @@ class Game < Gosu::Window
 
     self.drawable_objects = []
     self.updatable_objects = []
+    self.units = []
 
     init_background
     init_animations
     init_player
+    init_enemies
   end
 
   def init_player
-    unit = Unit.new(self)
-    self.drawable_objects << unit
-    self.updatable_objects << unit
+    Player.new(self)
   end
+
+  def init_enemies
+    enemy = AutonomousUnit.new(self)
+    enemy.jump(100, 100)
+    enemy.speed = 2
+    enemy = AutonomousUnit.new(self)
+    enemy.jump(540, 380)
+    enemy.speed = 4
+  end
+
 
   def init_background
     background = Background.new
@@ -43,7 +52,7 @@ class Game < Gosu::Window
     # presented here as template for when I want a spin to happen
     animations = {}
     animations[:spin] = Gosu::Image::load_tiles(
-      File.join(File.dirname(__FILE__), 'images','spin.png'),
+      File.join(File.dirname(__FILE__), 'images', 'spin.png'),
       60,
       60
     )
