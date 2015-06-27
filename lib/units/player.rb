@@ -4,7 +4,7 @@ class Player < Unit
 
   # Player overrides other decision making
   # replacing it with user interactions
-  def update
+  def class_update
     read_keys
     attack(closest_target)
   end

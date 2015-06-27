@@ -6,7 +6,6 @@ module Components
     def init_health(max)
       @max_health = max
       @health = (@max_health)
-      @bar_width = 5
     end
 
     def damage(amount)
@@ -33,9 +32,9 @@ module Components
         width = (@health.to_f / @max_health.to_f) * @size
         Gosu.draw_rect(
           (@x -(@size / 2)),
-          ((@y -(@size / 2)) - @bar_width),
+          ((@y -(@size / 2)) - (@bar_size * 2)),
           width,
-          @bar_width,
+          @bar_size,
           Gosu::Color::BLUE,
           2
         )

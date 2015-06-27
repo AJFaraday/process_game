@@ -1,11 +1,13 @@
 class Unit
 
   include Components::Movement
-  include Components::Health
+  include Components::Name
   include Components::RelativePositions
+  include Components::Health
+  include Components::AbilityPoints
   include Components::Attack
 
-  def initialize(game)
+  def initialize(x, y, game,options={})
     @game = game
     @game.drawable_objects << self
     @game.updatable_objects << self
@@ -13,19 +15,30 @@ class Unit
     @image = Gosu::Image.new(
       File.join(File.dirname(__FILE__), "..", 'images', 'peasant.png')
     )
-    @score = 0
+    jump(x, y)
+    @bar_size = 5
     @size = TILE_SIZE
 
-    init_movement
-    init_health(100)
-    init_attack(5, 5)
-    centre
+    init_movement(options[:speed] || 5)
+    init_health(options[:max_health] || 100)
+    init_ability_points(
+      options[:max_abiltiy_points] || 50,
+      options[:ability_point_recovery_chance] || 10
+    )
+    init_attack(
+      options[:range] || 5,
+      options[:damage] || 5
+    )
+    init_name
   end
 
   def draw
     unless dead?
       draw_avatar
       draw_health
+      draw_ability_points
+      draw_name
+      class_draw if self.respond_to?(:class_draw)
     end
   end
 
@@ -38,8 +51,8 @@ class Unit
   end
 
   def update
-    puts "called unit base class update"
-    puts 'decisions should be made by child classes'
+    recover_ability_points
+    class_update if self.respond_to?(:class_update)
   end
 
   # Anything which is not me is a target

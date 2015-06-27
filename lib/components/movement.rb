@@ -3,10 +3,9 @@ module Components
 
     attr_accessor :x, :y, :speed
 
-    def init_movement
-      @x = @y = @vel_x = @vel_y = @angle = 0.0
+    def init_movement(speed)
       @half_size = @size / 2
-      self.speed=(10)
+      self.speed=(speed)
     end
 
     def speed=(value)

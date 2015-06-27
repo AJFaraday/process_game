@@ -11,7 +11,9 @@ module Components
     def attack(unit)
       if unit.is_a?(Unit)
         if distance_to(unit) <= adjusted_range
-          unit.damage(@attack_damage)
+          use_ability(5) do
+            unit.damage(@attack_damage)
+          end
         end
       end
     end

@@ -25,22 +25,14 @@ class Game < Gosu::Window
 
     init_background
     init_animations
-    init_player
-    init_enemies
+    init_units
   end
 
-  def init_player
-    player = Player.new(self)
-    player.attack_damage = 5
-  end
-
-  def init_enemies
-    enemy = AttackingUnit.new(self)
-    enemy.jump(100, 100)
-    enemy.speed = 2
-    enemy = AttackingUnit.new(self)
-    enemy.jump(540, 380)
-    enemy.speed = 6
+  def init_units
+    AttackingUnit.new(100, 100, self)
+    AttackingUnit.new(540, 100, self)
+    AttackingUnit.new(540, 380, self)
+    AttackingUnit.new(100, 380, self)
   end
 
 
