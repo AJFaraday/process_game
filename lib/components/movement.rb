@@ -5,9 +5,13 @@ module Components
 
     def init_movement
       @x = @y = @vel_x = @vel_y = @angle = 0.0
-      @speed = 10
-      @step = @speed / 5.0
       @half_size = @size / 2
+      self.speed=(10)
+    end
+
+    def speed=(value)
+      @speed = value
+      @step = @speed / 5.0
     end
 
     def jump(x, y)

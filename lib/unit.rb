@@ -2,7 +2,8 @@ class Unit
 
   include Components::Movement
   include Components::Health
-  include Components::UnitInteraction
+  include Components::RelativePositions
+  include Components::Attack
 
   def initialize(game)
     @game = game
@@ -17,6 +18,7 @@ class Unit
 
     init_movement
     init_health(100)
+    init_attack(5, 5)
     centre
   end
 

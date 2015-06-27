@@ -1,8 +1,7 @@
 module Components
-  module UnitInteraction
+  module RelativePositions
 
     def closest_target
-      #candidates = @game.units.select{|target| target.object_id != self.object_id}
       candidates = targets
       if candidates.any?
         candidates.sort!{|a,b| distance_to(a) <=> distance_to(b)}
@@ -18,6 +17,22 @@ module Components
       else
         9999999999999999999999
       end
+    end
+
+    def right_of?(unit)
+      unit.respond_to?(:x) and x > unit.x
+    end
+
+    def left_of?(unit)
+      unit.respond_to?(:x) and x < unit.x
+    end
+
+    def higher_than?(unit)
+      unit.respond_to?(:y) and y < unit.y
+    end
+
+    def lower_than?(unit)
+      unit.respond_to?(:y) and y > unit.y
     end
 
   end

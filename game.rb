@@ -30,16 +30,17 @@ class Game < Gosu::Window
   end
 
   def init_player
-    Player.new(self)
+    player = Player.new(self)
+    player.attack_damage = 5
   end
 
   def init_enemies
-    enemy = AutonomousUnit.new(self)
+    enemy = AttackingUnit.new(self)
     enemy.jump(100, 100)
     enemy.speed = 2
-    enemy = AutonomousUnit.new(self)
+    enemy = AttackingUnit.new(self)
     enemy.jump(540, 380)
-    enemy.speed = 4
+    enemy.speed = 6
   end
 
 
