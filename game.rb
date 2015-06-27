@@ -1,6 +1,7 @@
 require 'gosu'
 require File.join(File.dirname(__FILE__), 'lib', 'background')
 require File.join(File.dirname(__FILE__), 'lib', 'components', 'movement')
+require File.join(File.dirname(__FILE__), 'lib', 'components', 'health')
 require File.join(File.dirname(__FILE__), 'lib', 'unit')
 require File.join(File.dirname(__FILE__), 'lib', 'spin')
 require File.join(File.dirname(__FILE__), 'lib', 'z_order')
@@ -11,10 +12,9 @@ TILE_SIZE = 60
 
 class Game < Gosu::Window
 
-  attr_accessor :background
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
-  attr_accessor :spinners
+  attr_accessor :animations
 
   def initialize
     super X_SIZE, Y_SIZE, {}
@@ -23,19 +23,26 @@ class Game < Gosu::Window
     self.drawable_objects = []
     self.updatable_objects = []
 
-    self.background = Background.new
-    self.drawable_objects << self.background
+    init_background
+    init_animations
+    init_player
+  end
 
+  def init_player
     unit = Unit.new(self)
     self.drawable_objects << unit
     self.updatable_objects << unit
-
-    self.spinners = []
-    get_animations
   end
 
-  def get_animations
-    @spin_anim = Gosu::Image::load_tiles(
+  def init_background
+    background = Background.new
+    drawable_objects << background
+  end
+
+  def init_animations
+    # presented here as template for when I want a spin to happen
+    animations = {}
+    animations[:spin] = Gosu::Image::load_tiles(
       File.join(File.dirname(__FILE__), 'images','spin.png'),
       60,
       60
@@ -44,7 +51,6 @@ class Game < Gosu::Window
 
   def update
     updatable_objects.each { |ob| ob.update }
-    create_spinners
   end
 
   def draw
@@ -54,15 +60,6 @@ class Game < Gosu::Window
   def button_down(id)
     if id == Gosu::KbEscape
       close
-    end
-  end
-
-  def create_spinners
-    if rand(100) < 1 and @spinners.size < 25
-      puts 'creating spinner'
-      spinner = Spin.new(@spin_anim)
-      drawable_objects.push(spinner)
-      @spinners.push(spinner)
     end
   end
 

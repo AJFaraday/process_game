@@ -1,6 +1,7 @@
 class Unit
 
   include Components::Movement
+  include Components::Health
 
   def initialize(game)
     @game = game
@@ -11,10 +12,18 @@ class Unit
     @size = TILE_SIZE
 
     init_movement
+    init_health(100)
     centre
   end
 
   def draw
+    unless dead?
+      draw_avatar
+      draw_health
+    end
+  end
+
+  def draw_avatar
     @image.draw(
       (@x -(@size / 2)),
       (@y -(@size / 2)),
@@ -24,24 +33,6 @@ class Unit
 
   def update
     read_keys
-    loop_position
-    collect_spinners
-  end
-
-  #TODO kill this
-  def score
-    @score
-  end
-
-  def collect_spinners
-    @game.spinners.each do |spinner|
-      if Gosu::distance(@x, @y, spinner.x, spinner.y) < 35
-        @game.drawable_objects.delete(spinner)
-        @game.spinners.delete(spinner)
-        @score += 1
-        puts @score
-      end
-    end
   end
 
 end

@@ -5,6 +5,7 @@ module Components
       @x = @y = @vel_x = @vel_y = @angle = 0.0
       @speed = 10
       @step = @speed / 5.0
+      @half_size = @size / 2
     end
 
     def read_keys
@@ -20,6 +21,7 @@ module Components
       if Gosu::button_down? Gosu::KbDown
         go_down
       end
+      loop_position
     end
 
     def jump(x, y)
@@ -50,23 +52,36 @@ module Components
     end
 
     def loop_position
-      if @x > X_SIZE + @size
-        @x = 0 - @size
-        puts 'right edge'
+      if at_right_edge?
+        @x = 0 - @half_size
       end
-      if @x < 0 - @size
-        puts 'left edge'
-        @x = X_SIZE + @size
+      if at_left_edge
+        @x = X_SIZE + @half_size
       end
-      if @y > Y_SIZE + @size
-        puts 'bottom edge'
-        @y = 0 - @size
+      if at_bottom_edge
+        @y = 0 - @half_size
       end
-      if @y < 0 - @size
-        puts 'top edge'
-        @y = Y_SIZE + @size
+      if at_top_edge
+        @y = Y_SIZE + @half_size
       end
     end
+
+    def at_top_edge
+      @y < 0 - @half_size
+    end
+
+    def at_bottom_edge
+      @y > Y_SIZE + @half_size
+    end
+
+    def at_left_edge
+      @x < 0 - @half_size
+    end
+
+    def at_right_edge?
+      @x > X_SIZE + @half_size
+    end
+
 
   end
 end

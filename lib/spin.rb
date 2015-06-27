@@ -3,10 +3,6 @@ class Spin
 
   def initialize(animation)
     @animation = animation
-    @color = Gosu::Color.new(0xff_000000)
-    @color.red = rand(256 - 40) + 40
-    @color.green = rand(256 - 40) + 40
-    @color.blue = rand(256 - 40) + 40
     @x = rand * 640
     @y = rand * 480
   end
@@ -14,8 +10,11 @@ class Spin
   def draw
     index = Gosu::milliseconds / 10 % @animation.size
     img = @animation[index]
-    img.draw(@x - img.width / 2.0, @y - img.height / 2.0,
-             ZOrder::Stars, 1, 1, @color, :add)
+    img.draw(
+      @x - img.width / 2.0,
+      @y - img.height / 2.0,
+      0
+    )
   end
 
 end
