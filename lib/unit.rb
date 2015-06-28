@@ -56,6 +56,7 @@ class Unit
       draw_health
       draw_ability_points
       draw_name
+      draw_attack
       class_draw if self.respond_to?(:class_draw)
     end
   end

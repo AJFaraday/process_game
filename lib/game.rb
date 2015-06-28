@@ -53,8 +53,8 @@ class Game < Gosu::Window
 
   def init_animations
     # presented here as template for when I want a spin to happen
-    animations = {}
-    animations[:spin] = Gosu::Image::load_tiles(
+    @animations = {}
+    @animations[:spin] = Gosu::Image::load_tiles(
       File.join(File.dirname(__FILE__), '..', 'images', 'spin.png'),
       60,
       60
