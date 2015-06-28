@@ -1,4 +1,5 @@
 require 'gosu'
+Dir[File.join(File.dirname(__FILE__), 'common_components', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'game_components', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'unit_components', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), '*.rb')].each { |file| require file }
@@ -6,7 +7,6 @@ Dir[File.join(File.dirname(__FILE__), 'units', '*.rb')].each { |file| require fi
 
 X_SIZE = 640
 Y_SIZE = 480
-TILE_SIZE = 60
 
 class Game < Gosu::Window
 

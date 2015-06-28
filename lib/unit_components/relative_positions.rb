@@ -11,6 +11,15 @@ module UnitComponents
       end
     end
 
+    def touching?(target)
+      distance_to(target) < @size
+    end
+
+    def in_range_of?(target)
+      distance_to(target) < @size + @range
+    end
+
+
     def distance_to(unit)
       if unit.respond_to?(:x) and unit.respond_to?(:y)
         Gosu.distance(x, y, unit.x, unit.y)

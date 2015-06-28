@@ -3,31 +3,27 @@ class Unit
   include UnitComponents::Movement
   include UnitComponents::Name
   include UnitComponents::RelativePositions
-  include UnitComponents::Health
   include UnitComponents::AbilityPoints
   include UnitComponents::Attack
-  include UnitComponents::Faction
+
+  include CommonComponents::Avatar
+  include CommonComponents::Health
+  include CommonComponents::Faction
 
   IMAGE_DIRECTORY = File.join(File.dirname(__FILE__), "..", 'images', 'units')
 
+  TILE_SIZE = 60
+
   def initialize(x, y, game, options={})
+    @size = TILE_SIZE
     @game = game
-    @avatar = options[:avatar] || 'peasant'
-    @colour = options[:colour] || 'green'
     @faction = options[:faction]
     @game.drawable_objects << self
     @game.updatable_objects << self
     @game.units << self
-    @image = Gosu::Image.new(
-      if File.exists?(full_avatar_path)
-        full_avatar_path
-      else
-        basic_avatar_path
-      end
-    )
+    init_avatar(options)
     jump(x, y)
     @bar_size = 5
-    @size = TILE_SIZE
 
     init_movement(options[:speed] || 5)
     init_health(options[:max_health] || 100)
@@ -36,18 +32,10 @@ class Unit
       options[:ability_point_recovery_chance] || 10
     )
     init_attack(
-      options[:range] || 5,
+      options[:range] || 0,
       options[:damage] || 5
     )
     init_name(options[:name])
-  end
-
-  def basic_avatar_path
-    File.join(IMAGE_DIRECTORY, @avatar, "#{@avatar}.png")
-  end
-
-  def full_avatar_path
-    File.join(IMAGE_DIRECTORY, @avatar, "#{@avatar}-#{@colour}.png")
   end
 
   def draw
@@ -59,14 +47,6 @@ class Unit
       draw_attack
       class_draw if self.respond_to?(:class_draw)
     end
-  end
-
-  def draw_avatar
-    @image.draw(
-      (@x -(@size / 2)),
-      (@y -(@size / 2)),
-      1
-    )
   end
 
   def update

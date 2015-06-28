@@ -1,4 +1,4 @@
-module UnitComponents
+module CommonComponents
   module Health
 
     attr_accessor(:health)

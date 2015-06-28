@@ -1,4 +1,4 @@
-module UnitComponents
+module CommonComponents
   module Faction
 
     attr_accessor(:faction)

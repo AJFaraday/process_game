@@ -3,7 +3,7 @@ module UnitComponents
 
     def follow_closest(&block)
       self.target = closest_target
-      if distance_to(target) < @size
+      if in_range_of?(target)
         if block_given?
           yield(target)
         end
