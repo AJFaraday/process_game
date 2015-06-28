@@ -11,12 +11,12 @@ Y_SIZE = 480
 class Game < Gosu::Window
 
   include GameComponents::Factions
+  include GameComponents::Units
   include GameComponents::DeclareWinner
 
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
   attr_accessor :animations
-  attr_accessor :units
   attr_accessor :active
 
   def initialize
@@ -25,9 +25,10 @@ class Game < Gosu::Window
 
     self.drawable_objects = []
     self.updatable_objects = []
-    self.units = []
     self.active = true
+    @frame = 0
 
+    init_units
     init_background
     init_animations
     init_delcaration
@@ -39,11 +40,6 @@ class Game < Gosu::Window
     )
     self.drawable_objects << @declaration
     self.updatable_objects << @declaration
-  end
-
-  def init_unit(kls, x, y, options={})
-    kls = Object.const_get(kls)
-    kls.send(:new, x, y, self, options)
   end
 
   def init_background
@@ -65,6 +61,7 @@ class Game < Gosu::Window
     updatable_objects.each { |ob| ob.update }
     check_for_winner
     close_after_time
+    @frame += 1
   end
 
   def draw
