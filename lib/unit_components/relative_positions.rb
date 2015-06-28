@@ -4,7 +4,7 @@ module UnitComponents
     def closest_target
       candidates = targets
       if candidates.any?
-        candidates.sort!{|a,b| distance_to(a) <=> distance_to(b)}
+        candidates.sort! { |a, b| distance_to(a) <=> distance_to(b) }
         candidates[0]
       else
         return nil
@@ -16,13 +16,17 @@ module UnitComponents
     end
 
     def in_range_of?(target)
-      distance_to(target) < @size + @range
+      if target
+        distance_to(target) < target.half_size + @range
+      else
+        false
+      end
     end
 
 
     def distance_to(unit)
       if unit.respond_to?(:x) and unit.respond_to?(:y)
-        Gosu.distance(x, y, unit.x, unit.y)
+        Gosu.distance(x, y, unit.x, unit.y) - @half_size
       else
         9999999999999999999999
       end

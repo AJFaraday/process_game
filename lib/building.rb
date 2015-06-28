@@ -8,10 +8,11 @@ class Building
 
   TILE_SIZE = 120
 
-  attr_accessor :game
+  attr_accessor :game, :x, :y, :half_size
 
   def initialize(x, y, game, options={})
     @size = TILE_SIZE
+    @half_size = @size / 2
     @game = game
     @x = x
     @y = y

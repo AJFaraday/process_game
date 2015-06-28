@@ -25,6 +25,10 @@ module FactionComponents
       self.resources[name].amount += amount
     end
 
+    def resource(name)
+      resources[name].amount
+    end
+
     def draw_resources(y)
       resources.values.each_with_index do |resource, index|
         resource.draw(

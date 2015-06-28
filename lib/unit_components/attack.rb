@@ -14,18 +14,14 @@ module UnitComponents
     end
 
     def attack(unit)
-      if unit.is_a?(Unit)
-        if distance_to(unit) <= adjusted_range
+      if unit.is_a?(Unit) or unit.is_a?(Building)
+        if in_range_of?(unit)
           use_ability(5) do
             unit.damage(@attack_damage)
             @attack_start = Gosu::milliseconds
           end
         end
       end
-    end
-
-    def adjusted_range
-      @range + @size
     end
 
     attr_accessor :attack_length

@@ -1,10 +1,9 @@
 module UnitComponents
   module Movement
 
-    attr_accessor :x, :y, :speed
+    attr_accessor :x, :y, :speed, :half_size
 
     def init_movement(speed)
-      @half_size = @size / 2
       self.speed=(speed)
     end
 

@@ -14,6 +14,8 @@ class Unit
 
   TILE_SIZE = 60
 
+  attr_accessor :half_size
+
   def initialize(x, y, game, options={})
     @size = TILE_SIZE
     @game = game
@@ -24,6 +26,7 @@ class Unit
     init_avatar(options)
     jump(x, y)
     @bar_size = 5
+    @half_size = @size / 2
 
     init_movement(options[:speed] || 5)
     init_health(options[:max_health] || 100)
