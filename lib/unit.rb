@@ -6,9 +6,11 @@ class Unit
   include UnitComponents::Health
   include UnitComponents::AbilityPoints
   include UnitComponents::Attack
+  include UnitComponents::Faction
 
-  def initialize(x, y, game,options={})
+  def initialize(x, y, game, options={})
     @game = game
+    @faction = options[:faction]
     @game.drawable_objects << self
     @game.updatable_objects << self
     @game.units << self
@@ -55,10 +57,15 @@ class Unit
     class_update if self.respond_to?(:class_update)
   end
 
-  # Anything which is not me is a target
 
   def targets
-    @game.units.select { |target| target != self }
+    if self.faction
+      # anything which isn't in my faction is a target
+      enemies
+    else
+      # Anything which is not me is a target
+      @game.units.select { |target| target != self }
+    end
   end
 
 end

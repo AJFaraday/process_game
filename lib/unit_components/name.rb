@@ -4,7 +4,7 @@ module UnitComponents
 
     FIRST_NAMES = %w{ James John Robert Micheal William }
 
-    SURNAMES = %w{Smith Johnson Williams Brown Jones}
+    SURNAMES = %w{ Smith Johnson Williams Brown Jones }
 
     attr_accessor(:name)
 

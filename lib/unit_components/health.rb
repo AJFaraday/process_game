@@ -14,6 +14,7 @@ module UnitComponents
         @game.units.delete(self)
         @game.drawable_objects.delete(self)
         @game.updatable_objects.delete(self)
+        @faction.units.delete(self)
       end
     end
 
