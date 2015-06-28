@@ -15,9 +15,8 @@ game = Game.new
 faction = game.add_faction('blue', 'blue')
 fill_faction(faction)
 
-faction = game.add_faction('reds', 'red')
+faction = game.add_faction('red', 'red')
 fill_faction(faction)
-
 
 
 

@@ -5,8 +5,10 @@ module GameComponents
 
     def add_faction(name, color)
       self.factions ||= []
-      faction = Faction.new(name, color, self)
+      index = (self.factions.size - 1)
+      faction = Faction.new(name, color, self, {:index => index})
       self.factions << faction
+      self.drawable_objects << faction
       faction
     end
 

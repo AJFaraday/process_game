@@ -1,7 +1,7 @@
 class Farm < Building
-  
+
   def initialize(x, y, game, options={})
-    options.merge!({:avatar => 'castle'})
+    options.merge!({:avatar => 'farm'})
     super(x,y,game,options)
   end
 

@@ -1,14 +1,17 @@
 class Faction
 
+  include FactionComponents::InfoBar
+
   attr_accessor :game, :name, :colour
+  attr_accessor :units, :index
 
-  attr_accessor :units
-
-  def initialize(name, colour, game)
+  def initialize(name, colour, game,options={})
     @name = name
     @colour = colour
     @game = game
     @units = []
+    @index = options[:index] || 0
+    init_info_bar
   end
 
   def add_unit(kls, x, y, options={})
@@ -25,6 +28,10 @@ class Faction
 
   def alive?
     !dead?
+  end
+
+  def draw
+    draw_info_bar
   end
 
 end
