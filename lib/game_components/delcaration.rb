@@ -30,7 +30,7 @@ module GameComponents
       @stop_time = Gosu::milliseconds + ms
       @image = Gosu::Image.from_text(
         @text,
-        Y_SIZE / 10,
+        Y_SIZE / 5,
         :width => Y_SIZE * 0.9,
         :align => :center
       )
