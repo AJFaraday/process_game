@@ -10,10 +10,13 @@ TILE_SIZE = 60
 
 class Game < Gosu::Window
 
+  include GameComponents::DeclareWinner
+
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
   attr_accessor :animations
   attr_accessor :units
+  attr_accessor :active
 
   def initialize
     super X_SIZE, Y_SIZE, {}
@@ -22,6 +25,7 @@ class Game < Gosu::Window
     self.drawable_objects = []
     self.updatable_objects = []
     self.units = []
+    self.active = true
 
     init_background
     init_animations
@@ -58,6 +62,8 @@ class Game < Gosu::Window
 
   def update
     updatable_objects.each { |ob| ob.update }
+    check_for_winner
+    close_after_time
   end
 
   def draw
