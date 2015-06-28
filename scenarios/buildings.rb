@@ -11,7 +11,7 @@ faction.add_unit('Castle', 100, 220)
 faction = game.add_faction('reds','red')
 
 faction.add_unit('Farm', 540, 380)
-#faction.add_unit('Castle', 540, 260)
-
+faction.add_unit('Farm', 420, 380)
+faction.add_unit('Castle', 540, 260)
 
 game.show
