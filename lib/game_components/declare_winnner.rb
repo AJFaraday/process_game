@@ -4,14 +4,15 @@ module GameComponents
 
     def check_for_winner
       if @active
-        if factions.select{|x|x.alive?}.count == 1
-          declare_winner
+        if factions and factions.select { |x| x.alive? }.count == 1
+          declare_winner(factions.select { |x| x.alive? }[0])
+        elsif units.count == 1
+          declare_winner(units.first)
         end
       end
     end
 
-    def declare_winner
-      winner = factions.select{|x|x.alive?}[0]
+    def declare_winner(winner)
       @declaration.show_text(
         "#{winner.name} win!",
         10000
@@ -26,7 +27,7 @@ module GameComponents
       end
     end
 
+
   end
 
 end
-

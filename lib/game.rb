@@ -10,8 +10,8 @@ TILE_SIZE = 60
 
 class Game < Gosu::Window
 
-  include GameComponents::DeclareWinner
   include GameComponents::Factions
+  include GameComponents::DeclareWinner
 
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
