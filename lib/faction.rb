@@ -1,6 +1,7 @@
 class Faction
 
   include FactionComponents::InfoBar
+  include FactionComponents::Resources
 
   attr_accessor :game, :name, :colour
   attr_accessor :units, :index
@@ -11,6 +12,7 @@ class Faction
     @game = game
     @units = []
     @index = options[:index] || 0
+    init_resources
     init_info_bar
   end
 
