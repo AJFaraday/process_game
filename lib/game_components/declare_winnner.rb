@@ -14,7 +14,7 @@ module GameComponents
 
     def declare_winner(winner)
       @declaration.show_text(
-        "#{winner.name} win!",
+        "#{winner.name} wins!",
         10000
       )
       @active = false
