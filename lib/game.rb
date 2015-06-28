@@ -1,8 +1,8 @@
 require 'gosu'
-Dir[File.join(File.dirname(__FILE__), 'lib', 'components', '*.rb')].each { |file| require file }
-Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each { |file| require file }
-Dir[File.join(File.dirname(__FILE__), 'lib', 'units', '*.rb')].each { |file| require file }
-
+Dir[File.join(File.dirname(__FILE__), 'game_components', '*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'unit_components', '*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), '*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'units', '*.rb')].each { |file| require file }
 
 X_SIZE = 640
 Y_SIZE = 480
@@ -25,16 +25,21 @@ class Game < Gosu::Window
 
     init_background
     init_animations
-    init_units
+    init_delcaration
   end
 
-  def init_units
-    AttackingUnit.new(100, 100, self)
-    AttackingUnit.new(540, 100, self)
-    AttackingUnit.new(540, 380, self)
-    AttackingUnit.new(100, 380, self)
+  def init_delcaration
+    @declaration = GameComponents::Declaration.new(
+      X_SIZE / 10
+    )
+    self.drawable_objects << @declaration
+    self.updatable_objects << @declaration
   end
 
+  def init_unit(kls, x, y, options={})
+    kls = Object.const_get(kls)
+    kls.send(:new, x, y, self, options)
+  end
 
   def init_background
     background = Background.new
@@ -45,7 +50,7 @@ class Game < Gosu::Window
     # presented here as template for when I want a spin to happen
     animations = {}
     animations[:spin] = Gosu::Image::load_tiles(
-      File.join(File.dirname(__FILE__), 'images', 'spin.png'),
+      File.join(File.dirname(__FILE__), '..', 'images', 'spin.png'),
       60,
       60
     )
@@ -65,7 +70,9 @@ class Game < Gosu::Window
     end
   end
 
-end
+  def show
+    @declaration.show_text('Game Starts', 2000)
+    super()
+  end
 
-window = Game.new
-window.show
+end

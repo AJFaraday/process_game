@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
   module PlayerControl
 
     def read_keys

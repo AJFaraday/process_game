@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
   module FollowClosest
 
     def follow_closest(&block)

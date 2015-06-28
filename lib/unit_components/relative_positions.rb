@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
   module RelativePositions
 
     def closest_target

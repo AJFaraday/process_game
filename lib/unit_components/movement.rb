@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
   module Movement
 
     attr_accessor :x, :y, :speed

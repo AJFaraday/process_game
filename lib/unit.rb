@@ -1,11 +1,11 @@
 class Unit
 
-  include Components::Movement
-  include Components::Name
-  include Components::RelativePositions
-  include Components::Health
-  include Components::AbilityPoints
-  include Components::Attack
+  include UnitComponents::Movement
+  include UnitComponents::Name
+  include UnitComponents::RelativePositions
+  include UnitComponents::Health
+  include UnitComponents::AbilityPoints
+  include UnitComponents::Attack
 
   def initialize(x, y, game,options={})
     @game = game
@@ -29,7 +29,7 @@ class Unit
       options[:range] || 5,
       options[:damage] || 5
     )
-    init_name
+    init_name(options[:name])
   end
 
   def draw

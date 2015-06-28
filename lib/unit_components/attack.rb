@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
   module Attack
 
     attr_accessor :attack_damage

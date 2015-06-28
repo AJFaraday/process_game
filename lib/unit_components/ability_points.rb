@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
   module AbilityPoints
 
     attr_accessor :ability_points

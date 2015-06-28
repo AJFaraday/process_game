@@ -1,6 +1,6 @@
 class AttackingUnit < Unit
 
-  include Components::FollowClosest
+  include UnitComponents::FollowClosest
 
   attr_accessor :target
 

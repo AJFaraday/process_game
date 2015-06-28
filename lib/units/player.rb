@@ -1,6 +1,6 @@
 class Player < Unit
 
-  include Components::PlayerControl
+  include UnitComponents::PlayerControl
 
   # Player overrides other decision making
   # replacing it with user interactions

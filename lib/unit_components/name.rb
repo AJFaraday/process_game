@@ -1,4 +1,4 @@
-module Components
+module UnitComponents
 
   module Name
 
@@ -8,7 +8,8 @@ module Components
 
     attr_accessor(:name)
 
-    def init_name
+    def init_name(name=nil)
+      @name = name if name
       name
       @font = Gosu::Font.new(@bar_size * 2)
     end
