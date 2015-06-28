@@ -13,7 +13,7 @@ class Faction
 
   def add_unit(kls, x, y, options={})
     kls = Object.const_get(kls)
-    options.merge!({:faction => self})
+    options.merge!({:faction => self, :colour => colour})
     unit = kls.send(:new, x, y, game, options)
     self.units << unit
     unit
@@ -26,7 +26,5 @@ class Faction
   def alive?
     !dead?
   end
-
-
 
 end

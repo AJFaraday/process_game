@@ -8,14 +8,22 @@ class Unit
   include UnitComponents::Attack
   include UnitComponents::Faction
 
+  IMAGE_DIRECTORY = File.join(File.dirname(__FILE__), "..", 'images', 'units')
+
   def initialize(x, y, game, options={})
     @game = game
+    @avatar = options[:avatar] || 'peasant'
+    @colour = options[:colour] || 'green'
     @faction = options[:faction]
     @game.drawable_objects << self
     @game.updatable_objects << self
     @game.units << self
     @image = Gosu::Image.new(
-      File.join(File.dirname(__FILE__), "..", 'images', 'peasant.png')
+      if File.exists?(full_avatar_path)
+        full_avatar_path
+      else
+        basic_avatar_path
+      end
     )
     jump(x, y)
     @bar_size = 5
@@ -32,6 +40,14 @@ class Unit
       options[:damage] || 5
     )
     init_name(options[:name])
+  end
+
+  def basic_avatar_path
+    File.join(IMAGE_DIRECTORY, @avatar, "#{@avatar}.png")
+  end
+
+  def full_avatar_path
+    File.join(IMAGE_DIRECTORY, @avatar, "#{@avatar}-#{@colour}.png")
   end
 
   def draw
