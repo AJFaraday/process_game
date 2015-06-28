@@ -5,7 +5,7 @@ module CommonComponents
 
     def init_health(max)
       @max_health = max
-      @health = (@max_health)
+      @health = @max_health
     end
 
     def damage(amount)

@@ -5,6 +5,8 @@ Dir[File.join(File.dirname(__FILE__), 'faction_components', '*.rb')].each { |fil
 Dir[File.join(File.dirname(__FILE__), 'unit_components', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'units', '*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'buildings', '*.rb')].each { |file| require file }
+
 
 X_SIZE = 640
 Y_SIZE = 480
@@ -14,6 +16,7 @@ class Game < Gosu::Window
   include GameComponents::Factions
   include GameComponents::Units
   include GameComponents::DeclareWinner
+  include GameComponents::ActionFrames
 
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects

@@ -5,6 +5,8 @@ class Resource
 
   include CommonComponents::Avatar
 
+  attr_accessor :amount
+
   def initialize(name)
     @name = name
     init_avatar(:avatar => name)

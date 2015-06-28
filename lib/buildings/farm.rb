@@ -6,8 +6,8 @@ class Farm < Building
   end
 
   def class_update
-    if game.resource_frame?
-      # add resource
+    if faction and game.resource_frame?
+      faction.increment('food', 1)
     end
   end
 
