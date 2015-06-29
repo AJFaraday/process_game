@@ -18,12 +18,10 @@ class Faction
 
   def add_unit(kls, x, y, options={})
     options = ActiveSupport::HashWithIndifferentAccess.new(options)
-    if kls.is_a?(Symbol)
+    if kls.is_a?(Symbol) or kls.is_a?(String)
       opts = game.unit_classes[kls]
       options.merge!(opts)
       kls = Object.const_get(opts[:class])
-    else
-      kls = Object.const_get(kls)
     end
     options.merge!({:faction => self, :colour => colour})
     unit = kls.send(:new, x, y, game, options)

@@ -32,11 +32,13 @@ module UnitComponents
 
         animation = @animations[:attack]
         img = animation[(time_since_start / 10)]
-        img.draw(
-          @x - @half_size,
-          @y - @half_size,
-          0.5
-        )
+        if img
+          img.draw(
+            @x - @half_size,
+            @y - @half_size,
+            0.5
+          )
+        end
       end
     end
 

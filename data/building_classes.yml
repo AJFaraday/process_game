@@ -1,0 +1,18 @@
+farm:
+  class: Farm
+  avatar: farm
+  max_health: 800
+  resource: food
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  resource_time: 60
+castle:
+  class: Castle
+  avatar: castle
+  max_health: 1000
+  spawn_class: knight
+  spawn_cost: 10
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  spawn_time: 60
+  resource: food

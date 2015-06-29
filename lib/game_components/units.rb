@@ -19,13 +19,12 @@ module GameComponents
     end
 
     def add_unit(kls, x, y, options={})
-      if kls.is_a?(Symbol)
+      if kls.is_a?(Symbol) or kls.is_a?(String)
         opts = unit_classes[kls]
         kls = Object.const_get(opts[:class])
         opts.merge!(options)
         kls.send(:new, x, y, self, opts)
       else
-        kls = Object.const_get(kls)
         kls.send(:new, x, y, self, options)
       end
     end
