@@ -1,0 +1,36 @@
+player_peasant:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: Player
+  avatar_name: peasant
+  attack_range: 0
+  attack_damage: 5
+  max_health: 100
+  max_ability_points: 50
+  # out of 100, chances that each fram will bring a new AP
+  ability_point_recovery_chance: 10
+  speed: 5
+peasant:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: AttackingUnit
+  avatar_name: peasant
+  attack_range: 0
+  attack_damage: 5
+  max_health: 100
+  max_ability_points: 50
+  # out of 100, chances that each fram will bring a new AP
+  ability_point_recovery_chance: 10
+  speed: 5
+knight:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: AttackingUnit
+  avatar_name: knight
+  attack_range: 0
+  attack_damage: 5
+  max_health: 100
+  max_ability_points: 50
+  # out of 100, chances that each fram will bring a new AP
+  ability_point_recovery_chance: 10
+  speed: 5

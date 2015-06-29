@@ -4,12 +4,12 @@ module UnitComponents
 
     attr_accessor :attack_damage
 
-    def init_attack(range, damage)
+    def init_attack(range, damage, animation = :spin)
       @range = range
       @attack_damage = damage
 
       @animations ||= {}
-      @animations[:attack] = @game.animations[:spin]
+      @animations[:attack] = @game.animations[animation]
       @attack_length = @animations[:attack].length * 10
     end
 

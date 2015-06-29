@@ -7,6 +7,9 @@ Dir[File.join(File.dirname(__FILE__), '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'units', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'buildings', '*.rb')].each { |file| require file }
 
+require 'active_support/core_ext/hash'
+require 'active_support/hash_with_indifferent_access'
+
 
 X_SIZE = 640
 Y_SIZE = 480

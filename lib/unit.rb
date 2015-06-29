@@ -11,7 +11,6 @@ class Unit
   include CommonComponents::Faction
 
   IMAGE_DIRECTORY = File.join(File.dirname(__FILE__), "..", 'images', 'units')
-
   TILE_SIZE = 60
 
   attr_accessor :half_size
@@ -35,8 +34,8 @@ class Unit
       options[:ability_point_recovery_chance] || 10
     )
     init_attack(
-      options[:range] || 0,
-      options[:damage] || 5
+      options[:attack_range] || 0,
+      options[:attack_damage] || 5
     )
     init_name(options[:name])
   end
