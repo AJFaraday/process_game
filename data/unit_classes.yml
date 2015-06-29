@@ -5,6 +5,7 @@ player_peasant:
   avatar_name: peasant
   attack_range: 0
   attack_damage: 5
+  attack_cost: 5
   max_health: 100
   max_ability_points: 50
   # out of 100, chances that each fram will bring a new AP
@@ -17,6 +18,7 @@ peasant:
   avatar_name: peasant
   attack_range: 0
   attack_damage: 5
+  attack_cost: 5
   max_health: 100
   max_ability_points: 50
   # out of 100, chances that each fram will bring a new AP
@@ -28,9 +30,10 @@ knight:
   class: AttackingUnit
   avatar_name: knight
   attack_range: 0
-  attack_damage: 5
+  attack_damage: 10
+  attack_cost: 10
   max_health: 100
   max_ability_points: 50
   # out of 100, chances that each fram will bring a new AP
-  ability_point_recovery_chance: 10
+  ability_point_recovery_chance: 5
   speed: 5
