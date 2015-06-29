@@ -6,7 +6,7 @@ class Faction
   attr_accessor :game, :name, :colour
   attr_accessor :units, :index
 
-  def initialize(name, colour, game,options={})
+  def initialize(name, colour, game, options={})
     @name = name
     @colour = colour
     @game = game
@@ -17,7 +17,14 @@ class Faction
   end
 
   def add_unit(kls, x, y, options={})
-    kls = Object.const_get(kls)
+    options = ActiveSupport::HashWithIndifferentAccess.new(options)
+    if kls.is_a?(Symbol)
+      opts = game.unit_classes[kls]
+      options.merge!(opts)
+      kls = Object.const_get(opts[:class])
+    else
+      kls = Object.const_get(kls)
+    end
     options.merge!({:faction => self, :colour => colour})
     unit = kls.send(:new, x, y, game, options)
     self.units << unit

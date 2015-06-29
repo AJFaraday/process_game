@@ -3,6 +3,7 @@ module CommonComponents
 
     def init_avatar(options)
       @avatar_name = options[:avatar] || 'peasant'
+      puts @avatar_name
       @colour = options[:colour] || 'green'
       @avatar = Gosu::Image.new(
         if File.exists?(full_avatar_path)

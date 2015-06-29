@@ -25,6 +25,7 @@ module GameComponents
         opts.merge!(options)
         kls.send(:new, x, y, self, opts)
       else
+        kls = Object.const_get(kls)
         kls.send(:new, x, y, self, options)
       end
     end
