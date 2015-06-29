@@ -12,7 +12,7 @@ class Castle < Building
   def class_update
     if faction and spawn_frame? and alive?
       if faction.resource(@resource) > @spawn_cost
-        faction.increment(@resource, 0 - @spawn_cost)
+        faction.increment(@resource, (0 - @spawn_cost))
         faction.add_unit(@spawn_class, x, y)
       end
     end

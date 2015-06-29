@@ -23,7 +23,7 @@ until x > X_SIZE
   until y > Y_SIZE
     faction = game.factions[n % game.factions.length]
     n += 1
-    faction.add_unit('AttackingUnit', x, y)
+    faction.add_unit(:peasant, x, y)
     y += 60
   end
   x += 60

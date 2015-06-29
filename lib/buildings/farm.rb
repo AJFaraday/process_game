@@ -4,7 +4,7 @@ class Farm < Building
     options.merge!({:avatar => 'farm'})
     super(x,y,game,options)
     @resource_time = options[:resource_time] || 60
-    @resource = options[:resource_time] || 'food'
+    @resource = options[:resource] || 'food'
   end
 
   def class_update
