@@ -35,10 +35,10 @@ class Game < Gosu::Window
     init_units
     init_background
     init_animations
-    init_delcaration
+    init_declaration
   end
 
-  def init_delcaration
+  def init_declaration
     @declaration = GameComponents::Declaration.new(
       X_SIZE / 10
     )
