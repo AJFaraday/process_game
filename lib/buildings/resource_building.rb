@@ -1,4 +1,4 @@
-class Farm < Building
+class ResourceBuilding < Building
 
   def initialize(x, y, game, options={})
     options.merge!({:avatar => 'farm'})

@@ -1,4 +1,4 @@
-class Castle < Building
+class SpawnBuilding < Building
 
   def initialize(x, y, game, options={})
     options.merge!({:avatar => 'castle'})

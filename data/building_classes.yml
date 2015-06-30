@@ -1,5 +1,5 @@
 farm:
-  class: Farm
+  class: ResourceBuilding
   avatar: farm
   max_health: 800
   resource: food
@@ -7,7 +7,7 @@ farm:
   # one in this many frames, we get a resource
   resource_time: 60
 castle:
-  class: Castle
+  class: SpawnBuilding
   avatar: castle
   max_health: 1000
   spawn_class: knight
