@@ -27,6 +27,10 @@ module UnitComponents
       end
     end
 
+    def can_attack?
+      ability_points >= @attack_cost
+    end
+
     attr_accessor :attack_length
 
     def draw_attack
