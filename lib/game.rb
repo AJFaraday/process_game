@@ -18,6 +18,7 @@ class Game < Gosu::Window
 
   include GameComponents::Factions
   include GameComponents::Units
+  include GameComponents::Projectiles
   include GameComponents::DeclareWinner
   include GameComponents::ActionFrames
 
@@ -39,6 +40,7 @@ class Game < Gosu::Window
     init_background
     init_animations
     init_delcaration
+    init_projectiles
   end
 
   def init_delcaration

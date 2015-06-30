@@ -2,13 +2,13 @@ class Unit
 
   include UnitComponents::Movement
   include UnitComponents::Name
-  include UnitComponents::RelativePositions
   include UnitComponents::AbilityPoints
   include UnitComponents::Attack
 
   include CommonComponents::Avatar
   include CommonComponents::Health
   include CommonComponents::Faction
+  include CommonComponents::RelativePositions
 
   IMAGE_DIRECTORY = File.join(File.dirname(__FILE__), "..", 'images', 'units')
   TILE_SIZE = 60
@@ -30,12 +30,14 @@ class Unit
     init_movement(options[:speed] || 5)
     init_health(options[:max_health] || 100)
     init_ability_points(
-      options[:max_abiltiy_points] || 50,
+      options[:max_ability_points] || 50,
       options[:ability_point_recovery_chance] || 10
     )
     init_attack(
       options[:attack_range] || 0,
-      options[:attack_damage] || 5
+      options[:attack_damage] || 5,
+      options[:attack_cost] || 5,
+      options[:attack_animation]
     )
     init_name(options[:name])
   end

@@ -1,0 +1,6 @@
+arrow:
+  image: arrow
+  speed: 15
+fireball:
+  image: fireball
+  speed: 10

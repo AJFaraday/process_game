@@ -1,4 +1,4 @@
-module UnitComponents
+module CommonComponents
   module RelativePositions
 
     def closest_target
@@ -22,7 +22,6 @@ module UnitComponents
         false
       end
     end
-
 
     def distance_to(unit)
       if unit.respond_to?(:x) and unit.respond_to?(:y)
