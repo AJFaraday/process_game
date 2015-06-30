@@ -6,8 +6,8 @@ game.add_faction('green','green')
 game.add_faction('purple','purple')
 game.add_faction('white','white')
 
-x = 0
-y = 60
+x = 120
+y = 120
 n = 0
 until x > X_SIZE
   y = 0
