@@ -40,6 +40,7 @@ class Unit
       options[:attack_animation]
     )
     init_name(options[:name])
+    class_init(options) if respond_to?(:class_init)
   end
 
   def draw

@@ -39,16 +39,18 @@ class Projectile
   def update
     @x += Gosu::offset_x(@angle, @speed)
     @y += Gosu::offset_y(@angle, @speed)
-    if Gosu::distance(@x, @y, @finish_x, @finish_y) <= 1
+    if arrived?
       land
     end
+  end
+
+  def arrived?
+    Gosu::distance(@x, @y, @finish_x, @finish_y) <= 5 || outside_map?
   end
 
   def land
     @game.drawable_objects.delete(self)
     @game.updatable_objects.delete(self)
-
-    @game.units.each{|x| puts distance_to(x)}
     units_landed_on = @game.units.select{|x| distance_to(x) <= @half_size}
     units_landed_on.each{|u| u.damage(@damage)}
   end

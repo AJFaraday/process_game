@@ -43,9 +43,10 @@ knight:
 archer:
   # class (in lib/units/)
   # mostly movement behaviour
-  class: AttackingUnit
+  class: ShootingUnit
   avatar: archer
-  attack_range: 100
+  projectile: arrow
+  attack_range: 150
   attack_damage: 20
   attack_cost: 10
   max_health: 60

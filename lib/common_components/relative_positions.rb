@@ -47,5 +47,9 @@ module CommonComponents
       unit.respond_to?(:y) and y > unit.y
     end
 
+    def outside_map?
+      @x < 0 or @y < 0 or @x > X_SIZE or @y > Y_SIZE
+    end
+
   end
 end
