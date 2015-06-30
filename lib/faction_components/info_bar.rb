@@ -6,18 +6,14 @@ module FactionComponents
 
     def init_info_bar
       @display_x ||= 10
-      @display_y ||= 10 - (HEIGHT * index)
-      @name_width = HEIGHT * 2
-      @name_display = Gosu::Image.from_text(
-        @name,
-        HEIGHT,
-        :width => @name_width,
-        :align => :left
-      )
+      @display_y ||= HEIGHT + (HEIGHT * index)
+      @name_width = HEIGHT * 3
+      @font = Gosu::Font.new(HEIGHT)
     end
 
     def draw_info_bar
-      @name_display.draw(
+      @font.draw(
+        @name,
         @display_x,
         @display_y,
         5

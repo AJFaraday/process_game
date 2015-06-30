@@ -18,15 +18,14 @@ coward_peasant:
   class: CowardUnit
   avatar: peasant
   attack_range: 0
-  attack_damage: 2
+  attack_damage: 5
   attack_cost: 5
-  max_health: 50
-  max_ability_points: 25
+  max_health: 100
+  max_ability_points: 50
   # out of 100, chances that each fram will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
   attack_animation: spin
-
 peasant:
   # class (in lib/units/)
   # mostly movement behaviour
