@@ -9,8 +9,13 @@ class ShootingUnit < Unit
   end
 
   def class_update
-    follow_closest do |target|
-      shoot(target)
+    if can_attack?
+      follow_closest do |target|
+        shoot(target)
+      end
+    elsif distance_to(closest_target) <= @range
+      avoid_closest
+      loop_position
     end
   end
 
