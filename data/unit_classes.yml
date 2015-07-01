@@ -91,3 +91,5 @@ monk:
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 3
+  animations:
+    heal: heal

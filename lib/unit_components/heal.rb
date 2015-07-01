@@ -16,6 +16,7 @@ module UnitComponents
         if in_healing_range_of?(unit)
           use_ability(@heal_cost) do
             unit.heal(@heal_power)
+            run_animation(:heal, unit)
           end
         end
       end
