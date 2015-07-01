@@ -1,7 +1,7 @@
 module CommonComponents
   module Health
 
-    attr_accessor(:health)
+    attr_accessor(:health, :max_health)
 
     def init_health(max)
       @max_health = max
@@ -9,6 +9,7 @@ module CommonComponents
     end
 
     def damage(amount)
+      puts caller unless amount
       @health -= amount
       if dead?
         @game.units.delete(self)

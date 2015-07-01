@@ -9,7 +9,7 @@ module UnitComponents
 
     def speed=(value)
       @speed = value
-      @step = @speed / 5.0
+      @step = @speed.to_i / 5.0
     end
 
     def jump(x, y)

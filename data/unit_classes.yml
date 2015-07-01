@@ -80,4 +80,4 @@ monk:
   max_ability_points: 50
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
-  speed: 5
+  speed: 3

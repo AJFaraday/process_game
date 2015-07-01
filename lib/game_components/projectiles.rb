@@ -12,6 +12,7 @@ module GameComponents
     end
 
     def add_projectile(kls, start, finish, damage)
+      puts caller unless damage
       projectile = Projectile.new(kls, start, finish, damage, self)
       self.updatable_objects << projectile
       self.drawable_objects << projectile

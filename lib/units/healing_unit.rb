@@ -8,8 +8,8 @@ class HealingUnit < Unit
   end
 
   def class_update
-    if can_heal?
-      follow(closest_friend) do |target|
+    if can_heal? and closest_hurt_friend
+      follow(closest_hurt_friend) do |target|
         heal(target)
      end
     elsif distance_to(closest_enemy) <= @heal_range
