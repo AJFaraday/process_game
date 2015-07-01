@@ -5,7 +5,7 @@ module UnitComponents
     attr_accessor :attack_damage
 
     def init_attack(range, damage, attack_cost, animation = nil)
-      @range = range
+      @attack_range = range
       @attack_damage = damage
       @attack_cost = attack_cost
 

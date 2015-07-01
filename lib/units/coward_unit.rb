@@ -6,11 +6,11 @@ class CowardUnit < Unit
 
   def class_update
     if can_attack?
-      follow_closest do |target|
+      follow(closest_enemy) do |target|
         attack(target)
       end
     else
-      avoid_closest
+      avoid(closest_enemy)
     end
     loop_position
   end

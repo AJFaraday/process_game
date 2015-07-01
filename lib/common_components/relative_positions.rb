@@ -17,7 +17,15 @@ module CommonComponents
 
     def in_range_of?(target)
       if target
-        distance_to(target) < target.half_size + @range
+        distance_to(target) < (target.half_size + @attack_range)
+      else
+        false
+      end
+    end
+
+    def in_healing_range_of?(target)
+      if target
+        distance_to(target) < (target.half_size + @heal_range)
       else
         false
       end

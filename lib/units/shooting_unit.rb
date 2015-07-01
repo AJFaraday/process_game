@@ -1,5 +1,6 @@
 class ShootingUnit < Unit
 
+  include UnitComponents::Shoot
   include UnitComponents::FollowClosest
 
   attr_accessor :target
@@ -10,28 +11,15 @@ class ShootingUnit < Unit
 
   def class_update
     if can_attack?
-      follow_closest do |target|
+      follow(closest_enemy) do |target|
         shoot(target)
       end
-    elsif distance_to(closest_target) <= @range
-      avoid_closest
+    elsif distance_to(closest_target) <= @attack_range
+      avoid(closest_enemy)
       loop_position
     end
   end
 
-  def shoot(unit)
-    if unit.is_a?(Unit) or unit.is_a?(Building)
-      if in_range_of?(unit)
-        use_ability(@attack_cost) do
-          @game.add_projectile(
-            @projectile,
-            self,
-            unit,
-            @attack_damage
-          )
-        end
-      end
-    end
-  end
+
 
 end

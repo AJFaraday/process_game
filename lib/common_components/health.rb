@@ -18,6 +18,14 @@ module CommonComponents
       end
     end
 
+    def heal(amount)
+      unless dead?
+        target = @health + amount
+        target = @max_health if target > @max_health
+        @health = target
+      end
+    end
+
     def dead?
       @health <= 0
     end

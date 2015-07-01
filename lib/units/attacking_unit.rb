@@ -5,7 +5,7 @@ class AttackingUnit < Unit
   attr_accessor :target
 
   def class_update
-    follow_closest do |target|
+    follow(closest_enemy) do |target|
       attack(target)
     end
   end

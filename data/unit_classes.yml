@@ -8,7 +8,7 @@ player_peasant:
   attack_cost: 5
   max_health: 100
   max_ability_points: 50
-  # out of 100, chances that each fram will bring a new AP
+  # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
   attack_animation: spin
@@ -22,7 +22,7 @@ coward_peasant:
   attack_cost: 5
   max_health: 100
   max_ability_points: 50
-  # out of 100, chances that each fram will bring a new AP
+  # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
   attack_animation: spin
@@ -36,7 +36,7 @@ peasant:
   attack_cost: 5
   max_health: 100
   max_ability_points: 50
-  # out of 100, chances that each fram will bring a new AP
+  # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
   attack_animation: spin
@@ -50,7 +50,7 @@ knight:
   attack_cost: 10
   max_health: 100
   max_ability_points: 50
-  # out of 100, chances that each fram will bring a new AP
+  # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10
   speed: 10
   attack_animation: spin
@@ -65,6 +65,19 @@ archer:
   attack_cost: 10
   max_health: 60
   max_ability_points: 10
-  # out of 100, chances that each fram will bring a new AP
+  # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10
   speed: 10
+monk:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: HealingUnit
+  avatar: monk
+  heal_range: 60
+  heal_power: 10
+  heal_cost: 20
+  max_health: 60
+  max_ability_points: 50
+  # out of 100, chances that each frame will bring a new AP
+  ability_point_recovery_chance: 5
+  speed: 5

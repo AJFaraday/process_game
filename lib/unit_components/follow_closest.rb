@@ -1,9 +1,9 @@
 module UnitComponents
   module FollowClosest
 
-    def follow_closest(&block)
-      self.target = closest_target
-      if in_range_of?(target)
+    def follow(target=nil, &block)
+      target ||= closest_target
+      if target and in_range_of?(target)
         if block_given?
           yield(target)
         end
@@ -23,8 +23,8 @@ module UnitComponents
       end
     end
 
-    def avoid_closest
-      self.target = closest_target
+    def avoid(target)
+      target ||= closest_target
       if higher_than?(target)
         go_up
       end

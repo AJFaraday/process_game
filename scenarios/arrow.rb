@@ -6,7 +6,7 @@ faction = game.add_faction('blue','blue')
 faction.add_unit(:farm, 100, 100)
 peasant = faction.add_unit(:peasant, 400, 400)
 
-faction = game.add_faction('reds','red')
+faction = game.add_faction('red','red')
 faction.add_unit(:farm, 500, 100)
 
 game.add_projectile(

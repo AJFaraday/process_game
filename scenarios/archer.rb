@@ -3,7 +3,7 @@ require_relative '../lib/game'
 game = Game.new
 
 game.add_faction('blue','blue')
-game.add_faction('reds','red')
+game.add_faction('red','red')
 game.add_faction('green','green')
 game.add_faction('yellow','yellow')
 
