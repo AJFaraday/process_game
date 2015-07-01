@@ -9,7 +9,8 @@ module UnitComponents
               @projectile,
               self,
               unit,
-              @attack_damage
+              @attack_damage,
+
             )
           end
         end

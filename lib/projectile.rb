@@ -4,9 +4,11 @@ class Projectile
 
   attr_accessor :x, :y
 
-  def initialize(kls, start, finish, damage, game)
+  def initialize(kls, start, finish, damage, game, animation=nil)
     @game = game
+    @animaiton = animation
     init_class(kls)
+    @source = start
     @start_x, @start_y = get_coord(start)
     @x = @start_x
     @y = @start_y
@@ -53,6 +55,17 @@ class Projectile
     @game.updatable_objects.delete(self)
     units_landed_on = @game.units.select{|x| distance_to(x) <= @half_size}
     units_landed_on.each{|u| u.damage(@damage)}
+    landing_animation(units_landed_on[0]) if units_landed_on.any?
+  end
+
+  def landing_animation(unit)
+    if @source.respond_to?(:animations)
+      animation = @source.animations['damage']
+      if animation
+        animation.follow = unit
+        animation.start = Gosu::milliseconds
+      end
+    end
   end
 
   def draw

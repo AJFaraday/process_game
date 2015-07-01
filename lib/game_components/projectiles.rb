@@ -11,7 +11,7 @@ module GameComponents
       init_projectile_images
     end
 
-    def add_projectile(kls, start, finish, damage)
+    def add_projectile(kls, start, finish, damage, animation=nil)
       puts caller unless damage
       projectile = Projectile.new(kls, start, finish, damage, self)
       self.updatable_objects << projectile

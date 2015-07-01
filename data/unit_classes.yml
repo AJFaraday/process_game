@@ -13,6 +13,7 @@ player_peasant:
   speed: 5
   animations:
     attack: spin
+    damage: blood
 coward_peasant:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -28,6 +29,7 @@ coward_peasant:
   speed: 5
   animations:
     attack: spin
+    damage: blood
 peasant:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -43,6 +45,7 @@ peasant:
   speed: 5
   animations:
     attack: spin
+    damage: blood
 knight:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -58,6 +61,7 @@ knight:
   speed: 10
   animations:
     attack: spin
+    damage: blood
 archer:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -72,6 +76,8 @@ archer:
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10
   speed: 10
+  animations:
+    damage: blood
 monk:
   # class (in lib/units/)
   # mostly movement behaviour

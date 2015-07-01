@@ -16,6 +16,7 @@ module UnitComponents
           use_ability(@attack_cost) do
             unit.damage(@attack_damage)
             run_animation(:attack)
+            run_animation(:damage, unit)
           end
         end
       end

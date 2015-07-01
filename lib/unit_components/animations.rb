@@ -1,15 +1,19 @@
 module UnitComponents
   module Animations
 
+    attr_accessor :animations
+
     def init_animations(options)
       @animations ||= {}
-      options[:animations].each do |action, animation|
-        @animations[action] = OpenStruct.new(
-          :images => @game.animations[animation],
-          :length => @game.animations[animation].length,
-          :follow => self,
-          :start => nil
-        )
+      if options[:animations]
+        options[:animations].each do |action, animation|
+          @animations[action] = OpenStruct.new(
+            :images => @game.animations[animation],
+            :length => @game.animations[animation].length,
+            :follow => self,
+            :start => nil
+          )
+        end
       end
     end
 
@@ -17,7 +21,7 @@ module UnitComponents
       name = name.to_s
       animation = @animations[name]
       if animation
-        animation.target = target if target
+        animation.follow = target if target
         animation.start = Gosu::milliseconds
       end
     end

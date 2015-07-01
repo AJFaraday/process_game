@@ -8,7 +8,7 @@ game.add_faction('green','green')
 game.add_faction('yellow','yellow')
 
 game.factions.each do |faction|
-  5.times{ faction.add_unit(:archer, rand(X_SIZE), rand(Y_SIZE)) }
+  1.times{ faction.add_unit(:archer, rand(X_SIZE), rand(Y_SIZE)) }
 end
 
 
