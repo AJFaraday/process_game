@@ -11,7 +11,8 @@ player_peasant:
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
-  attack_animation: spin
+  animations:
+    attack: spin
 coward_peasant:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -25,7 +26,8 @@ coward_peasant:
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
-  attack_animation: spin
+  animations:
+    attack: spin
 peasant:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -39,7 +41,8 @@ peasant:
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 5
-  attack_animation: spin
+  animations:
+    attack: spin
 knight:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -53,7 +56,8 @@ knight:
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10
   speed: 10
-  attack_animation: spin
+  animations:
+    attack: spin
 archer:
   # class (in lib/units/)
   # mostly movement behaviour

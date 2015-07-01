@@ -4,6 +4,7 @@ class Unit
   include UnitComponents::Name
   include UnitComponents::AbilityPoints
   include UnitComponents::Attack
+  include UnitComponents::Animations
 
   include CommonComponents::Avatar
   include CommonComponents::Health
@@ -36,10 +37,10 @@ class Unit
     init_attack(
       options[:attack_range] || 0,
       options[:attack_damage] || 5,
-      options[:attack_cost] || 5,
-      options[:attack_animation]
+      options[:attack_cost] || 5
     )
     init_name(options[:name])
+    init_animations(options)
     class_init(options) if respond_to?(:class_init)
   end
 
@@ -49,7 +50,7 @@ class Unit
       draw_health
       draw_ability_points
       draw_name
-      draw_attack
+      draw_animations
       class_draw if self.respond_to?(:class_draw)
     end
   end

@@ -1,4 +1,5 @@
 require 'gosu'
+require 'ostruct'
 Dir[File.join(File.dirname(__FILE__), 'common_components', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'game_components', '*.rb')].each { |file| require file }
 Dir[File.join(File.dirname(__FILE__), 'faction_components', '*.rb')].each { |file| require file }
