@@ -1,23 +1,25 @@
 module UnitComponents
   module Animations
-    
+
     def init_animations(options)
       @animations ||= {}
       options[:animations].each do |action, animation|
         @animations[action] = OpenStruct.new(
-          :images => @game.animations[animation.to_sym],
-          :length => @game.animations[animation.to_sym].length,
+          :images => @game.animations[animation],
+          :length => @game.animations[animation].length,
           :follow => self,
           :start => nil
         )
       end
     end
-    
-    def run_animation(name,target=nil)
+
+    def run_animation(name, target=nil)
       name = name.to_s
       animation = @animations[name]
-      animation.target = target if target
-      animation.start = Gosu::milliseconds
+      if animation
+        animation.target = target if target
+        animation.start = Gosu::milliseconds
+      end
     end
 
     def draw_animations
@@ -35,6 +37,6 @@ module UnitComponents
         end
       end
     end
-    
+
   end
 end

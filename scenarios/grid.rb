@@ -7,7 +7,7 @@ y = 0
 until x > X_SIZE
   y = 0
   until y > Y_SIZE
-    game.init_unit(:peasant, x, y)
+    game.add_unit(:peasant, x, y)
     y += 100
   end
   x += 100

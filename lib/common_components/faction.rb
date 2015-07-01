@@ -4,9 +4,13 @@ module CommonComponents
     attr_accessor(:faction)
 
     def friends
-      units = @faction.units.clone
-      units.delete(self)
-      units
+      if @faction
+        units = @faction.units.clone
+        units.delete(self)
+        units
+      else
+        nil
+      end
     end
 
     def closest_friend
@@ -15,12 +19,18 @@ module CommonComponents
 
     def closest_hurt_friend
       heal_targets = friends.clone
-      heal_targets.reject!{|unit| unit.health >= unit.max_health }
+      heal_targets.reject! { |unit| unit.health >= unit.max_health }
       closest_unit(heal_targets)
     end
 
     def enemies
-      @game.units.clone - @faction.units
+      if @faction
+        @game.units.clone - @faction.units
+      else
+        units = @game.units.clone
+        units.delete(self)
+        units
+      end
     end
 
     def closest_enemy

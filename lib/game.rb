@@ -22,10 +22,10 @@ class Game < Gosu::Window
   include GameComponents::Projectiles
   include GameComponents::DeclareWinner
   include GameComponents::ActionFrames
+  include GameComponents::Animations
 
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
-  attr_accessor :animations
   attr_accessor :active
 
   def initialize
@@ -55,16 +55,6 @@ class Game < Gosu::Window
   def init_background
     background = Background.new
     drawable_objects << background
-  end
-
-  def init_animations
-    # presented here as template for when I want a spin to happen
-    @animations = {}
-    @animations[:spin] = Gosu::Image::load_tiles(
-      File.join(File.dirname(__FILE__), '..', 'images', 'spin.png'),
-      60,
-      60
-    )
   end
 
   def update
