@@ -25,7 +25,7 @@ module CommonComponents
       @avatar.draw(
         (@x -(@size / 2)),
         (@y -(@size / 2)),
-        1
+        @layer || 1
       )
     end
 

@@ -8,9 +8,10 @@ module UnitComponents
       if options[:animations]
         options[:animations].each do |action, animation|
           @animations[action] = OpenStruct.new(
-            :images => @game.animations[animation],
-            :length => @game.animations[animation].length,
+            :images => @game.animations[animation['name']],
+            :length => @game.animations[animation['name']].length,
             :follow => self,
+            :layer => (animation['layer'] ? LAYERS[animation['layer'].to_sym] : LAYERS[:over_unit]),
             :start => nil
           )
         end
@@ -35,7 +36,7 @@ module UnitComponents
             img.draw(
               animation.follow.x - animation.follow.half_size,
               animation.follow.y - animation.follow.half_size,
-              0.5
+              animation.layer
             )
           end
         end

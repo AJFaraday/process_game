@@ -2,7 +2,7 @@ require_relative '../lib/game'
 
 game = Game.new
 
-faction = game.add_faction('blue','blue')
+faction = game.add_faction('teal','teal')
 
 faction.add_unit(:peasant, 540, 100)
 faction.add_unit(:peasant, 540, 380)

@@ -18,7 +18,7 @@ class Resource
     @avatar.draw(
       x,
       y,
-      5,
+      LAYERS[:ui],
       0.5,
       0.5
     )
@@ -26,7 +26,7 @@ class Resource
       @amount,
       x + TILE_SIZE,
       y,
-      5
+      LAYERS[:ui]
     )
   end
 

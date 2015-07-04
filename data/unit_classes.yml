@@ -28,8 +28,10 @@ coward_peasant:
   ability_point_recovery_chance: 5
   speed: 5
   animations:
-    attack: spin
-    damage: blood
+    attack:
+      name: spin
+    damage:
+      name: blood
 peasant:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -44,8 +46,11 @@ peasant:
   ability_point_recovery_chance: 5
   speed: 5
   animations:
-    attack: spin
-    damage: blood
+    attack:
+      name: spin
+      layer: under_unit
+    damage:
+      name: blood
 knight:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -60,8 +65,10 @@ knight:
   ability_point_recovery_chance: 10
   speed: 10
   animations:
-    attack: spin
-    damage: blood
+    attack:
+      name: spin
+    damage:
+      name: blood
 archer:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -77,7 +84,8 @@ archer:
   ability_point_recovery_chance: 10
   speed: 10
   animations:
-    damage: blood
+    damage:
+      name: blood
 monk:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -92,4 +100,5 @@ monk:
   ability_point_recovery_chance: 5
   speed: 3
   animations:
-    heal: heal
+    heal:
+      name: heal

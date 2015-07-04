@@ -19,6 +19,7 @@ class Unit
   def initialize(x, y, game, options={})
     @size = TILE_SIZE
     @game = game
+    @layer = LAYERS[:unit]
     @faction = options[:faction]
     @game.drawable_objects << self
     @game.updatable_objects << self

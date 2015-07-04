@@ -18,6 +18,7 @@ class Building
     @y = y
     @faction = options[:faction]
     @bar_size = 10
+    @layer = LAYERS[:building]
     @game.drawable_objects << self
     @game.updatable_objects << self
     @game.units << self

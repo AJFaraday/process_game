@@ -11,6 +11,15 @@ Dir[File.join(File.dirname(__FILE__), 'buildings', '*.rb')].each { |file| requir
 require 'active_support/core_ext/hash'
 require 'active_support/hash_with_indifferent_access'
 
+LAYERS = {
+  :background => -1,
+  :under_unit => 0.5,
+  :unit => 1,
+  :over_unit => 1.5,
+  :flag => 2,
+  :building => 4,
+  :ui => 5
+}
 
 X_SIZE = 640
 Y_SIZE = 480

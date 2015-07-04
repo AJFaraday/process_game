@@ -10,7 +10,7 @@ class Background
   end
 
   def draw
-    image.draw(0, 0, -1)
+    image.draw(0, 0, LAYERS[:background])
   end
 
 end

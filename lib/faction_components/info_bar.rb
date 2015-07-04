@@ -16,7 +16,7 @@ module FactionComponents
         @name,
         @display_x,
         @display_y,
-        5
+        LAYERS[:ui]
       )
       draw_resources(@display_y)
     end
