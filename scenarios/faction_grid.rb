@@ -29,4 +29,9 @@ until x > X_SIZE
   x += 60
 end
 
+game.factions.each do |faction|
+  faction.hide_info_bar = true
+end
+
+
 game.show

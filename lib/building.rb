@@ -26,6 +26,7 @@ class Building
     @game.units << self
     init_avatar(options)
     init_health(options[:max_health])
+    class_init if respond_to?(:class_init)
   end
 
   def draw

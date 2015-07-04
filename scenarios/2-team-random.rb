@@ -16,5 +16,9 @@ faction = game.add_faction('red', 'red')
 fill_faction(faction)
 
 
+game.factions.each do |faction|
+  faction.hide_info_bar = true
+end
+
 
 game.show

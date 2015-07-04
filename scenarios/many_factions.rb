@@ -25,4 +25,9 @@ game.factions.each do |faction|
   faction.add_unit(:monk, rand(X_SIZE), rand(Y_SIZE))
 end
 
+game.factions.each do |faction|
+  faction.hide_info_bar = true
+end
+
+
 game.show

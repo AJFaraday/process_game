@@ -2,6 +2,7 @@ class Faction
 
   include FactionComponents::InfoBar
   include FactionComponents::Resources
+  include FactionComponents::Units
 
   attr_accessor :game, :name, :colour
   attr_accessor :units, :index
@@ -15,19 +16,6 @@ class Faction
     @index = options[:index] || 0
     init_resources
     init_info_bar
-  end
-
-  def add_unit(kls, x, y, options={})
-    options = ActiveSupport::HashWithIndifferentAccess.new(options)
-    if kls.is_a?(Symbol) or kls.is_a?(String)
-      opts = game.unit_classes[kls]
-      options.merge!(opts)
-      kls = Object.const_get(opts[:class])
-    end
-    options.merge!({:faction => self, :colour => colour})
-    unit = kls.send(:new, x, y, game, options)
-    self.units << unit
-    unit
   end
 
   def dead?

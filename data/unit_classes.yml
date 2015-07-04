@@ -12,8 +12,11 @@ player_peasant:
   ability_point_recovery_chance: 5
   speed: 5
   animations:
-    attack: spin
-    damage: blood
+    attack:
+      name: spin
+      layer: under_unit
+    damage:
+      name: blood
 coward_peasant:
   # class (in lib/units/)
   # mostly movement behaviour
@@ -30,12 +33,32 @@ coward_peasant:
   animations:
     attack:
       name: spin
+      layer: under_unit
     damage:
       name: blood
 peasant:
   # class (in lib/units/)
   # mostly movement behaviour
   class: AttackingUnit
+  avatar: peasant
+  attack_range: 0
+  attack_damage: 5
+  attack_cost: 5
+  max_health: 100
+  max_ability_points: 50
+  # out of 100, chances that each frame will bring a new AP
+  ability_point_recovery_chance: 5
+  speed: 5
+  animations:
+    attack:
+      name: spin
+      layer: under_unit
+    damage:
+      name: blood
+flag_peasant:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: FlagFollowingUnit
   avatar: peasant
   attack_range: 0
   attack_damage: 5
@@ -67,6 +90,26 @@ knight:
   animations:
     attack:
       name: spin
+      layer: under_unit
+    damage:
+      name: blood
+flag_knight:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: FlagFollowingUnit
+  avatar: knight
+  attack_range: 0
+  attack_damage: 20
+  attack_cost: 10
+  max_health: 100
+  max_ability_points: 50
+  # out of 100, chances that each frame will bring a new AP
+  ability_point_recovery_chance: 10
+  speed: 10
+  animations:
+    attack:
+      name: spin
+      layer: under_unit
     damage:
       name: blood
 archer:

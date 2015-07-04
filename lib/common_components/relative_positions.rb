@@ -15,6 +15,10 @@ module CommonComponents
       distance_to(target) < @size
     end
 
+    def on_top_of?(target)
+      distance_to(target) == 0
+    end
+
     def in_range_of?(target)
       if target
         distance_to(target) < (target.half_size + @attack_range)

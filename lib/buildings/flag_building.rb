@@ -4,5 +4,4 @@ class FlagBuilding < Building
     60
   end
 
-
 end

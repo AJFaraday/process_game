@@ -11,4 +11,9 @@ faction = game.add_faction('red','red')
 faction.add_unit(:peasant, 300, 240)
 faction.add_unit(:peasant, 400, 240)
 
+game.factions.each do |faction|
+  faction.hide_info_bar = true
+end
+
+
 game.show
