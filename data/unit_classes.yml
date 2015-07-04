@@ -52,7 +52,7 @@ knight:
   class: AttackingUnit
   avatar: knight
   attack_range: 0
-  attack_damage: 10
+  attack_damage: 20
   attack_cost: 10
   max_health: 100
   max_ability_points: 50
