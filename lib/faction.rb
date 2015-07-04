@@ -5,6 +5,7 @@ class Faction
 
   attr_accessor :game, :name, :colour
   attr_accessor :units, :index
+  attr_accessor :hide_info_bar
 
   def initialize(name, colour, game, options={})
     @name = name
@@ -38,7 +39,7 @@ class Faction
   end
 
   def draw
-    draw_info_bar
+    draw_info_bar unless hide_info_bar
   end
 
 end
