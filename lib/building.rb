@@ -6,12 +6,14 @@ class Building
 
   IMAGE_DIRECTORY = File.join(File.dirname(__FILE__), "..", 'images', 'buildings')
 
-  TILE_SIZE = 120
-
   attr_accessor :game, :x, :y, :half_size
 
+  def self.tile_size
+    120
+  end
+
   def initialize(x, y, game, options={})
-    @size = TILE_SIZE
+    @size = self.class.tile_size
     @half_size = @size / 2
     @game = game
     @x = x
@@ -23,7 +25,7 @@ class Building
     @game.updatable_objects << self
     @game.units << self
     init_avatar(options)
-    init_health(1000)
+    init_health(options[:max_health])
   end
 
   def draw

@@ -16,3 +16,8 @@ castle:
   # one in this many frames, we get a resource
   spawn_time: 60
   resource: food
+flag:
+  class: FlagBuilding
+  avatar: flag
+  max_health: 10
+
