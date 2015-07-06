@@ -1,8 +1,6 @@
 class ResourceBuilding < Building
 
-  def initialize(x, y, game, options={})
-    options.merge!({:avatar => 'farm'})
-    super(x,y,game,options)
+  def class_init(options={})
     @resource_time = options[:resource_time] || 60
     @resource = options[:resource] || 'food'
   end
