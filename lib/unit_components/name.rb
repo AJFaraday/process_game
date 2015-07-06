@@ -29,7 +29,7 @@ module UnitComponents
         name,
         x - @half_size,
         y - @half_size - (@bar_size * 4),
-        2
+        LAYERS[:bars]
       )
     end
 

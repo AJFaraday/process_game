@@ -26,7 +26,7 @@ module UnitComponents
           width,
           @bar_size,
           Gosu::Color::RED,
-          2
+          LAYERS[:bars]
         )
       end
     end

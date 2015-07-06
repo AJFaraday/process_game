@@ -19,6 +19,7 @@ module CommonComponents
 
     def closest_hurt_friend
       heal_targets = friends.clone
+      heal_targets.reject!{|x|x.is_a?(Building)}
       heal_targets.reject! { |unit| unit.health >= unit.max_health }
       closest_unit(heal_targets)
     end

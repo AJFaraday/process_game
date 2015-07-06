@@ -46,7 +46,7 @@ module CommonComponents
           width,
           @bar_size,
           Gosu::Color::BLUE,
-          2
+          LAYERS[:bars]
         )
       end
     end

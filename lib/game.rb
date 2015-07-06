@@ -18,7 +18,8 @@ LAYERS = {
   :over_unit => 1.5,
   :flag => 2,
   :building => 4,
-  :ui => 5
+  :bars => 5,
+  :ui => 6
 }
 
 X_SIZE = 640

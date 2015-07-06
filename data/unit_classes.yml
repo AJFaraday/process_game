@@ -138,7 +138,7 @@ monk:
   heal_power: 10
   heal_cost: 20
   max_health: 60
-  max_ability_points: 50
+  max_ability_points: 30
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 5
   speed: 3

@@ -58,7 +58,7 @@ monasterry:
   avatar: monasterry
   max_health: 1000
   spawn_class: monk
-  spawn_cost: 10
+  spawn_cost: 20
   # 60 frames a second
   # one in this many frames, we get a resource
   spawn_time: 60
