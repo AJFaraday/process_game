@@ -1,5 +1,7 @@
 class SpawnBuilding < Building
 
+  attr_accessor :resource
+
   def class_init(options={})
     @spawn_class = options[:spawn_class] || :knight
     @spawn_cost = options[:spawn_cost] || 5
@@ -8,11 +10,8 @@ class SpawnBuilding < Building
   end
 
   def class_update
-    if faction and spawn_frame? and alive?
-      if faction.resource(@resource) > @spawn_cost
-        faction.increment(@resource, (0 - @spawn_cost))
-        faction.add_unit(@spawn_class, x, y)
-      end
+    if faction and spawn_frame? and alive? and next_in_line?
+      faction.buy(@spawn_class, x, y, @resource, @spawn_cost)
     end
   end
 
@@ -20,5 +19,12 @@ class SpawnBuilding < Building
     (game.frame % @spawn_time) == 0
   end
 
+  def next_in_line?
+    resource.next_building == self
+  end
+
+  def resource
+    faction.resources[@resource]
+  end
 
 end

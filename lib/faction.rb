@@ -19,7 +19,8 @@ class Faction
   end
 
   def dead?
-    self.units.none?
+    # healing units don't count.
+    self.units.reject{|x|x.is_a?(HealingUnit)}.none?
   end
 
   def alive?

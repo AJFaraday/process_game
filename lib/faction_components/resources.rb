@@ -15,6 +15,7 @@ module FactionComponents
 
     def add_resource(name)
       self.resources[name] = Resource.new(name)
+      self.resources[name].faction = self
     end
 
     def set(name, amount)
@@ -35,6 +36,15 @@ module FactionComponents
           10 + @name_width + (RESOURCE_WIDTH * index),
           y
         )
+      end
+    end
+
+    def buy(spawn_class, x, y, resource, spawn_cost)
+      res = resources[resource]
+      if res.amount > spawn_cost
+        increment(resource, (0 - spawn_cost))
+        add_unit(spawn_class, x, y)
+        res.building_index += 1
       end
     end
 

@@ -53,17 +53,21 @@ class Projectile
   def land
     @game.drawable_objects.delete(self)
     @game.updatable_objects.delete(self)
-    units_landed_on = @game.units.select{|x| distance_to(x) <= @half_size}
-    units_landed_on.each{|u| u.damage(@damage)}
-    landing_animation(units_landed_on[0]) if units_landed_on.any?
+    units_landed_on = @game.units.select { |x| distance_to(x) <= @half_size }
+    units_landed_on.each { |u| u.damage(@damage) }
+    landing_animation(units_landed_on) if units_landed_on.any?
   end
 
-  def landing_animation(unit)
-    if @source.respond_to?(:animations)
-      animation = @source.animations['damage']
-      if animation
-        animation.follow = unit
-        animation.start = Gosu::milliseconds
+  def landing_animation(units)
+    units = units.clone
+    units.reject!{ |x| x.is_a?(Building) }
+    if units.any?
+      if @source.respond_to?(:animations)
+        animation = @source.animations['damage']
+        if animation
+          animation.follow = units[0]
+          animation.start = Gosu::milliseconds
+        end
       end
     end
   end
@@ -71,7 +75,6 @@ class Projectile
   def draw
     @image.draw_rot(@x, @y, 4, @angle)
   end
-
 
 
 end

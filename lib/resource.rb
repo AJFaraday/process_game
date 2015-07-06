@@ -6,15 +6,19 @@ class Resource
   include CommonComponents::Avatar
 
   attr_accessor :amount
+  attr_accessor :name
+  attr_accessor :faction
+  attr_accessor :building_index
 
   def initialize(name)
     @name = name
     init_avatar(:avatar => name)
     @amount = 0
     @font = Gosu::Font.new(TILE_SIZE)
+    @building_index = 0
   end
 
-  def draw(x,y)
+  def draw(x, y)
     @avatar.draw(
       x,
       y,
@@ -28,6 +32,19 @@ class Resource
       y,
       LAYERS[:ui]
     )
+  end
+
+  def next_building
+    if buildings.any?
+      buildings[building_index % buildings.size]
+    end
+  end
+
+  def buildings
+    faction.buildings.select do |building|
+      building.is_a?(SpawnBuilding) and
+        building.resource == self
+    end
   end
 
 
