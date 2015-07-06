@@ -6,6 +6,23 @@ farm:
   # 60 frames a second
   # one in this many frames, we get a resource
   resource_time: 60
+sawmill:
+  class: ResourceBuilding
+  avatar: sawmill
+  max_health: 800
+  resource: wood
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  resource_time: 60
+goldmine:
+  class: ResourceBuilding
+  avatar: goldmine
+  max_health: 800
+  resource: gold
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  resource_time: 60
+
 castle:
   class: SpawnBuilding
   avatar: castle
@@ -15,7 +32,38 @@ castle:
   # 60 frames a second
   # one in this many frames, we get a resource
   spawn_time: 60
+  resource: gold
+village:
+  class: SpawnBuilding
+  avatar: village
+  max_health: 1000
+  spawn_class: peasant
+  spawn_cost: 5
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  spawn_time: 60
   resource: food
+archery-range:
+  class: SpawnBuilding
+  avatar: archery-range
+  max_health: 1000
+  spawn_class: archer
+  spawn_cost: 5
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  spawn_time: 60
+  resource: wood
+monasterry:
+  class: SpawnBuilding
+  avatar: monasterry
+  max_health: 1000
+  spawn_class: monk
+  spawn_cost: 10
+  # 60 frames a second
+  # one in this many frames, we get a resource
+  spawn_time: 60
+  resource: food
+
 flag:
   class: FlagBuilding
   avatar: flag

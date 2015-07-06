@@ -1,5 +1,4 @@
 require_relative '../lib/game'
-
 game = Game.new
 
 x = 0
