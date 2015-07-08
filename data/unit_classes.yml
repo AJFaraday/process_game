@@ -156,6 +156,7 @@ player_bird:
   bomb_time: 120
   bomb_damage: 60
   bomb_cost: 10
+  bomb_range: 60
   max_health: 60
   max_ability_points: 10
   # out of 100, chances that each frame will bring a new AP

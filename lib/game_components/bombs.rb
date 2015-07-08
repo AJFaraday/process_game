@@ -11,8 +11,8 @@ module GameComponents
       init_bomb_images
     end
 
-    def add_bomb(kls, source, damage, time)
-      bomb = Bomb.new(kls, source, damage, time, self)
+    def add_bomb(kls, source, damage, time, range)
+      bomb = Bomb.new(kls, source, damage, time, range, self)
       self.updatable_objects << bomb
       self.drawable_objects << bomb
       bomb

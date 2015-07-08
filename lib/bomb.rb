@@ -4,10 +4,11 @@ class Bomb
 
   attr_accessor :x, :y
 
-  def initialize(kls, start, damage, time, game)
+  def initialize(kls, start, damage, time, range, game)
     @game = game
     init_class(kls)
     @source = start
+    @range = range
     @start_x, @start_y = get_coord(start)
     @x = @start_x
     @y = @start_y
@@ -43,7 +44,9 @@ class Bomb
   def bang!
     @game.drawable_objects.delete(self)
     @game.updatable_objects.delete(self)
-    units_landed_on = @game.units.select { |x| distance_to(x) <= @half_size }
+    units_landed_on = @game.units.select do |x|
+      distance_to(x) <= (@range + x.half_size)
+    end
     units_landed_on.each { |u| u.damage(@damage) }
     landing_animation
   end
