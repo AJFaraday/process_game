@@ -4,9 +4,8 @@ class Projectile
 
   attr_accessor :x, :y
 
-  def initialize(kls, start, finish, damage, game, animation=nil)
+  def initialize(kls, start, finish, damage, game)
     @game = game
-    @animaiton = animation
     init_class(kls)
     @source = start
     @start_x, @start_y = get_coord(start)

@@ -145,3 +145,23 @@ monk:
   animations:
     heal:
       name: heal
+
+
+player_bird:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: PlayerBird
+  avatar: bird
+  bomb: bomb
+  bomb_time: 120
+  bomb_damage: 60
+  bomb_cost: 10
+  max_health: 60
+  max_ability_points: 10
+  # out of 100, chances that each frame will bring a new AP
+  ability_point_recovery_chance: 10
+  speed: 5
+  turn_speed: 3
+  animations:
+    explosion:
+      name: explode

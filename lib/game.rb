@@ -17,7 +17,8 @@ LAYERS = {
   :unit => 1,
   :over_unit => 1.5,
   :flag => 2,
-  :building => 4,
+  :building => 3,
+  :air => 4,
   :bars => 5,
   :ui => 6
 }
@@ -30,6 +31,7 @@ class Game < Gosu::Window
   include GameComponents::Factions
   include GameComponents::Units
   include GameComponents::Projectiles
+  include GameComponents::Bombs
   include GameComponents::DeclareWinner
   include GameComponents::ActionFrames
   include GameComponents::Animations
@@ -49,8 +51,10 @@ class Game < Gosu::Window
 
     init_units
     init_background
+    init_projectiles
     init_animations
     init_projectiles
+    init_bombs
     init_declaration
   end
 
