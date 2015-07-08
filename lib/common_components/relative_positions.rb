@@ -16,7 +16,7 @@ module CommonComponents
     end
 
     def on_top_of?(target)
-      distance_to(target) == 0
+      distance_to(target) <= 5
     end
 
     def in_range_of?(target)
@@ -62,6 +62,28 @@ module CommonComponents
     def outside_map?
       @x < 0 or @y < 0 or @x > X_SIZE or @y > Y_SIZE
     end
+
+
+    def angle_to(unit)
+      Gosu.angle(@x, @y, unit.x, unit.y)
+    end
+
+    def facing_right_of?(unit)
+      if @angle
+        Gosu.angle_diff(@angle, angle_to(unit)) < 0
+      else
+        false
+      end
+    end
+
+    def facing_left_of?(unit)
+      if @angle
+        Gosu.angle_diff(@angle, angle_to(unit)) > 0
+      else
+        false
+      end
+    end
+
 
   end
 end

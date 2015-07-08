@@ -1,6 +1,5 @@
-class PlayerBird < Unit
+class Bird < Unit
 
-  include UnitComponents::BirdControl
   include UnitComponents::BirdMovement
   include UnitComponents::Bombing
 
@@ -13,10 +12,17 @@ class PlayerBird < Unit
   # Player overrides other decision making
   # replacing it with user interactions
   def class_update
-    read_keys
-    if Gosu::button_down? Gosu::KbSpace
-      drop_bomb
+    if can_drop_bomb?
+      drop_bomb if on_top_of?(closest_target)
+      if facing_right_of?(closest_target)
+        turn_left
+      end
+      if facing_left_of?(closest_target)
+        turn_right
+      end
     end
+    go_forward
+    loop_position
   end
 
   def draw_avatar

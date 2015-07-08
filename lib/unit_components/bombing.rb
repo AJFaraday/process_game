@@ -16,6 +16,10 @@ module UnitComponents
       end
     end
 
+    def can_drop_bomb?
+      @ability_points >= @bomb_cost
+    end
+
   end
 
 end

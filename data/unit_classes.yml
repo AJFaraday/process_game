@@ -156,8 +156,28 @@ player_bird:
   bomb_time: 120
   bomb_damage: 60
   bomb_cost: 10
-  bomb_range: 60
+  bomb_range: 30
   max_health: 60
+  max_ability_points: 10
+  # out of 100, chances that each frame will bring a new AP
+  ability_point_recovery_chance: 10
+  speed: 5
+  turn_speed: 3
+  animations:
+    explosion:
+      name: explode
+
+bird:
+  # class (in lib/units/)
+  # mostly movement behaviour
+  class: Bird
+  avatar: bird
+  bomb: bomb
+  bomb_time: 60
+  bomb_damage: 60
+  bomb_cost: 10
+  bomb_range: 30
+  max_health: 200
   max_ability_points: 10
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10

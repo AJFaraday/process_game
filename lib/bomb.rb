@@ -4,17 +4,15 @@ class Bomb
 
   attr_accessor :x, :y
 
-  def initialize(kls, start, damage, time, range, game)
+  def initialize(kls, source, damage, time, range, game)
     @game = game
     init_class(kls)
-    @source = start
+    @source = source
     @range = range
-    @start_x, @start_y = get_coord(start)
-    @x = @start_x
-    @y = @start_y
+    @x, @y = get_coord(@source)
     @fuse = time
     @damage = damage
-    @half_size = 15
+    @half_size = 30
   end
 
   def init_class(kls)
@@ -57,7 +55,7 @@ class Bomb
       if animation
         animation.follow = OpenStruct.new(
           :x => @x, :y => @y,
-          :half_size => 0
+          :half_size => 30
         )
         animation.start = Gosu::milliseconds
       end
@@ -65,7 +63,11 @@ class Bomb
   end
 
   def draw
-    @image.draw(@x, @y, LAYERS[:over_unit])
+    @image.draw(
+      @x - @half_size,
+      @y - @half_size,
+      LAYERS[:over_unit]
+    )
   end
 
 
