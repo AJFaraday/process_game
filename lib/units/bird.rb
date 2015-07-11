@@ -12,7 +12,7 @@ class Bird < Unit
   # Player overrides other decision making
   # replacing it with user interactions
   def class_update
-    if can_drop_bomb?
+    if can_drop_bomb? and closest_target
       drop_bomb if on_top_of?(closest_target)
       if facing_right_of?(closest_target)
         turn_left
