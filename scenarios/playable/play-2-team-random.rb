@@ -1,4 +1,4 @@
-require_relative '../lib/game'
+require_relative '../../lib/game'
 
 def fill_faction(faction)
   5.times do

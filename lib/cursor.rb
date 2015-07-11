@@ -18,9 +18,10 @@ class Cursor
     @y = @game.mouse_y
     if @game.button_down?(Gosu::MsLeft) and @active
       @active = false
+      puts units_under_cursor.count
       # units_under_cursor.do_stuff
     end
-    if !@game.button_down?(Gosu::MsLeft)
+    if !@game.button_down?(Gosu::MsLeft) and !@active
       @active = true
     end
   end

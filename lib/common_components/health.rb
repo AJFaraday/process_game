@@ -6,6 +6,7 @@ module CommonComponents
     def init_health(max)
       @max_health = max
       @health = @max_health
+      @health_bar_colour = Gosu::Color.rgba(0, 0, 225, 127)
     end
 
     def damage(amount)
@@ -45,7 +46,7 @@ module CommonComponents
           ((@y -(@size / 2)) - (@bar_size * 2)),
           width,
           @bar_size,
-          Gosu::Color::BLUE,
+          @health_bar_colour,
           LAYERS[:bars]
         )
       end

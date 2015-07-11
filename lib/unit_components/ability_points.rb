@@ -8,6 +8,7 @@ module UnitComponents
       @ability_points = (@max_ability_points)
       # out of 100
       @ability_point_recovery_chance = ability_point_recovery_chance
+      @ability_bar_colour = Gosu::Color.rgba(225, 0, 0, 127)
     end
 
     def use_ability(amount, &block)
@@ -25,7 +26,7 @@ module UnitComponents
           (@y -(@size / 2) - @bar_size),
           width,
           @bar_size,
-          Gosu::Color::RED,
+          @ability_bar_colour,
           LAYERS[:bars]
         )
       end

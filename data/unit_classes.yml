@@ -154,10 +154,10 @@ player_bird:
   avatar: bird
   bomb: bomb
   bomb_time: 120
-  bomb_damage: 60
+  bomb_damage: 40
   bomb_cost: 10
   bomb_range: 30
-  max_health: 200
+  max_health: 100
   max_ability_points: 10
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10
@@ -174,10 +174,10 @@ bird:
   avatar: bird
   bomb: bomb
   bomb_time: 60
-  bomb_damage: 60
+  bomb_damage: 40
   bomb_cost: 10
   bomb_range: 30
-  max_health: 200
+  max_health: 100
   max_ability_points: 10
   # out of 100, chances that each frame will bring a new AP
   ability_point_recovery_chance: 10

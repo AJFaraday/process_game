@@ -1,8 +1,5 @@
-require_relative '../lib/game'
+require_relative '../../lib/game'
 game = Game.new
-
-X_SIZE = 100
-Y_SIZE = 100
 
 x = 0
 y = 0

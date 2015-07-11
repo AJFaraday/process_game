@@ -1,4 +1,4 @@
-require_relative '../lib/game'
+require_relative '../../lib/game'
 
 game = Game.new
 
@@ -16,11 +16,10 @@ game.add_faction('black','black')
 
 game.factions.each do |faction|
   faction.hide_info_bar = true
-  #faction.add_unit(:farm, rand(X_SIZE), rand(Y_SIZE))
-  #faction.add_unit(:castle, rand(X_SIZE), rand(Y_SIZE))
   faction.add_unit(:peasant, rand(X_SIZE), rand(Y_SIZE))
   faction.add_unit(:coward_peasant, rand(X_SIZE), rand(Y_SIZE))
   faction.add_unit(:knight, rand(X_SIZE), rand(Y_SIZE))
+  faction.add_unit(:bird, rand(X_SIZE), rand(Y_SIZE))
   faction.add_unit(:archer, rand(X_SIZE), rand(Y_SIZE))
   faction.add_unit(:monk, rand(X_SIZE), rand(Y_SIZE))
 end
