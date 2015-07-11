@@ -12,6 +12,10 @@ module GameComponents
       @frame % 60 == 0
     end
 
+    def mouse_action_frame?
+      @frame % 120 == 0
+    end
+
   end
 
 end

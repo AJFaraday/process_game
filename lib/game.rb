@@ -49,6 +49,7 @@ class Game < Gosu::Window
     self.active = true
     @frame = 0
 
+    init_cursor
     init_units
     init_background
     init_projectiles
@@ -56,6 +57,12 @@ class Game < Gosu::Window
     init_projectiles
     init_bombs
     init_declaration
+  end
+
+  def init_cursor
+    cursor = Cursor.new(self)
+    self.drawable_objects << cursor
+    self.updatable_objects << cursor
   end
 
   def init_declaration
