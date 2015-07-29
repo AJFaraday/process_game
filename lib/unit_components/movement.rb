@@ -40,19 +40,76 @@ module UnitComponents
     end
 
     def go_up
-      @y = @y - @step
+      if !@moved_y
+        if can_go_up?
+          @y = @y - @step
+          @moved_y = true
+        else
+          go_right
+        end
+      end
     end
 
     def go_down
-      @y = @y + @step
+      if !@moved_y
+        if can_go_down?
+          @y = @y + @step
+          @moved_y = true
+        else
+          go_left
+        end
+      end
     end
 
     def go_right
-      @x = @x + @step
+      if !@moved_x
+        if can_go_right?
+          @x = @x + @step
+          @moved_x = true
+        else
+          go_up
+        end
+      end
     end
 
     def go_left
-      @x = @x - @step
+      if !@moved_x
+        if can_go_left?
+          @x = @x - @step
+          @moved_x = true
+        else
+          go_down
+        end
+      end
+    end
+
+    # These methods check if a step in a given direction is passable or not.
+    # Impassable:
+    #
+    # Lakes
+
+    def coord_passable?(x, y)
+      @game.lakes.any? { |l| !l.includes_coord?(x, y, @half_size) }
+    end
+
+    def can_go_right?
+      target_x = @x + @step
+      coord_passable?(target_x, @y)
+    end
+
+    def can_go_left?
+      target_x = @x - @step
+      coord_passable?(target_x, @y)
+    end
+
+    def can_go_up?
+      target_y = @y - @step
+      coord_passable?(@x, target_y)
+    end
+
+    def can_go_down?
+      target_y = @y + @step
+      coord_passable?(@x, target_y)
     end
 
     def at_top_edge?
