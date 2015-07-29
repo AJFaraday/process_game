@@ -17,7 +17,7 @@ module GameComponents
         YAML.load_file(file)
       )
       file = File.join(File.dirname(__FILE__), '..', '..', 'data', 'building_classes.yml')
-      @unit_classes.merge!(YAML.load_file(file))
+      @unit_classes.merge!YAML.load_file(file)
     end
 
     def add_unit(kls, x, y, options={})
@@ -32,7 +32,7 @@ module GameComponents
     end
 
     def buildings
-      units.select{|x|x.is_a?(Building)}
+      units.select{|x|x.is_a?(Building) and !x.is_a?(FlagBuilding)}
     end
 
   end
