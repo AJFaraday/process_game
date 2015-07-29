@@ -3,6 +3,7 @@ class Building
   include CommonComponents::Health
   include CommonComponents::Faction
   include CommonComponents::Avatar
+  include CommonComponents::RelativePositions
 
   IMAGE_DIRECTORY = File.join(File.dirname(__FILE__), "..", 'images', 'buildings')
 
