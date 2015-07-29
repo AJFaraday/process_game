@@ -42,6 +42,7 @@ module UnitComponents
     def go_up
       if !@moved_y
         if can_go_up?
+          @checked << 'x'
           @y = @y - @step
           @moved_y = true
         else
@@ -52,6 +53,7 @@ module UnitComponents
 
     def go_down
       if !@moved_y
+        @checked << 'x'
         if can_go_down?
           @y = @y + @step
           @moved_y = true
@@ -64,10 +66,11 @@ module UnitComponents
     def go_right
       if !@moved_x
         if can_go_right?
+          @checked << 'x'
           @x = @x + @step
           @moved_x = true
         else
-          go_up
+          go_down
         end
       end
     end
@@ -75,10 +78,11 @@ module UnitComponents
     def go_left
       if !@moved_x
         if can_go_left?
+          @checked << 'x'
           @x = @x - @step
           @moved_x = true
         else
-          go_down
+          go_up
         end
       end
     end
@@ -89,7 +93,7 @@ module UnitComponents
     # Lakes
 
     def coord_passable?(x, y)
-      @game.lakes.none? { |l| l.includes_coord?(x, y, @half_size) }
+      @game.lakes.none? { |l| l.includes_coord?(x, y, @half_size) } or @checked.size >= 4
     end
 
     def can_go_right?

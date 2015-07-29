@@ -59,6 +59,7 @@ class Unit
   def update
     @moved_x = false
     @moved_y = false
+    @checked = []
     recover_ability_points
     class_update if self.respond_to?(:class_update)
   end
