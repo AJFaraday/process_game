@@ -96,9 +96,9 @@ module UnitComponents
       return true if @checked > 4
       if @game.lakes.any?
         @game.lakes.none? { |l| l.includes_coord?(x, y, @half_size) } and
-          @game.buildings.none? { |b| b.touching?(OpenStruct.new(x: x, y: y, half_size: 1-@half_size)) }
+          @game.buildings.none? { |b| b.touching?(OpenStruct.new(x: x, y: y, half_size: 5-@half_size)) }
       else
-        @game.buildings.none? { |b| b.touching?(OpenStruct.new(x: x, y: y, half_size: 1-@half_size)) }
+        @game.buildings.none? { |b| b.touching?(OpenStruct.new(x: x, y: y, half_size: 5-@half_size)) }
       end
     end
 
