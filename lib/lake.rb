@@ -12,7 +12,7 @@ class Lake
   def draw
     Gosu.draw_rect(
       @x, @y, @x_size, @y_size,
-      Gosu::Color::BLUE,
+      Gosu::Color.rgb(64,128,255),
       LAYERS[:under_unit]
     )
   end
