@@ -89,7 +89,7 @@ module UnitComponents
     # Lakes
 
     def coord_passable?(x, y)
-      @game.lakes.any? { |l| !l.includes_coord?(x, y, @half_size) }
+      @game.lakes.none? { |l| l.includes_coord?(x, y, @half_size) }
     end
 
     def can_go_right?
