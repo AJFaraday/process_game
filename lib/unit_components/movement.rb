@@ -93,7 +93,11 @@ module UnitComponents
     # Lakes
 
     def coord_passable?(x, y)
-      @game.lakes.none? { |l| l.includes_coord?(x, y, @half_size) } or @checked >= 4
+      @checked >= 4 or
+        (@game.lakes.any? and @game.lakes.none? { |l| l.includes_coord?(x, y, @half_size) }) or
+        @game.buildings.none? do |b|
+          b.touching?(OpenStruct.new(x: x, y: y, half_size: -@half_size))
+        end
     end
 
     def can_go_right?

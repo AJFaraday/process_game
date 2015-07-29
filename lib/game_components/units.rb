@@ -31,6 +31,10 @@ module GameComponents
       end
     end
 
+    def buildings
+      units.select{|x|x.is_a?(Building)}
+    end
+
   end
 
 end

@@ -12,7 +12,7 @@ module CommonComponents
     end
 
     def touching?(target)
-      distance_to(target) < (((@half_size + target.half_size) / 2))
+      distance_to(target) < (@half_size + target.half_size) / 2
     end
 
     def on_top_of?(target)
