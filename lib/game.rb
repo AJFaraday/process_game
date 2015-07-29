@@ -35,6 +35,7 @@ class Game < Gosu::Window
   include GameComponents::DeclareWinner
   include GameComponents::ActionFrames
   include GameComponents::Animations
+  include GameComponents::Lakes
 
   attr_accessor :drawable_objects
   attr_accessor :updatable_objects
@@ -57,6 +58,7 @@ class Game < Gosu::Window
     init_projectiles
     init_bombs
     init_declaration
+    init_lakes
   end
 
   def init_cursor
@@ -99,5 +101,7 @@ class Game < Gosu::Window
     @declaration.show_text('Game Starts', 2000)
     super()
   end
+
+
 
 end
