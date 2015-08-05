@@ -44,19 +44,19 @@ module CommonComponents
     end
 
     def right_of?(unit)
-      unit.respond_to?(:x) and x > unit.x
+      unit.respond_to?(:x) and (x - (@size - 20)) > unit.x
     end
 
     def left_of?(unit)
-      unit.respond_to?(:x) and x < unit.x
+      unit.respond_to?(:x) and (x + (@size - 20)) < unit.x
     end
 
     def higher_than?(unit)
-      unit.respond_to?(:y) and y < unit.y
+      unit.respond_to?(:y) and (y + (@size - 20)) < unit.y
     end
 
     def lower_than?(unit)
-      unit.respond_to?(:y) and y > unit.y
+      unit.respond_to?(:y) and (y - (@size - 20)) > unit.y
     end
 
     def outside_map?
