@@ -60,7 +60,8 @@ module CommonComponents
     end
 
     def outside_map?
-      @x < 0 or @y < 0 or @x > X_SIZE or @y > Y_SIZE
+      @x < -100 or @y < -100 or
+        @x > (X_SIZE + 100) or @y > (Y_SIZE + 100)
     end
 
 
